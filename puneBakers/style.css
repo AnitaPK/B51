@@ -1,0 +1,52 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+}
+
+.centerHeading{
+    text-align: center;
+}
+.detailsPara{
+    margin: 50px 180px ;
+    /* padding: 60px 20px 10px 90px; */
+    font-size: x-large;
+}
+.boldText{
+    font-weight: bold;
+}
+.contactDetails{
+    background-image: url('./assets/contactDetails.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    padding-top: 100px;
+
+}
+.contentDiv{
+    background-color: white;
+    margin-left: 90px;
+    width: 450px;
+    border: 5px solid red;
+    padding: 20px;
+}
+.contactHeading{
+    font-size: xx-large;
+
+}
+.contact-btn{
+    background-color: #7b7b7b;  
+    /* 00 - ff   00-ff         00-ff; */
+    color: white; 
+    padding: 10px; 
+    font-weight: bolder;
+    border: none;
+}
+.contact-btn:hover{
+    background-color: rgb(78, 78, 78);
+}
