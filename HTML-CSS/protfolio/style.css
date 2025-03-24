@@ -1,0 +1,122 @@
+*{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+    margin: none;
+    padding: 0;
+}
+body{
+    background-color: black;
+    color: white;
+}
+/* navbar css  */
+nav{
+    height: 80px;
+    background-color: #313131;
+    display: flex;
+}
+
+ul.navList{
+    list-style-type: none;
+    /* display: flex; */
+    width: 80%;
+}
+
+li.navItem{
+    display: inline-block;
+    margin: 10px 50px;
+}
+
+a.navLink:link{
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+a.navLink:hover{
+    color: red !important;
+}
+a.navLink:active{
+    color: red;
+
+}
+a.navLink:visited{
+    color: white;
+
+}
+.iconsDiv{
+    /* display: inline-block; */
+    width: 20%;
+    padding-right: 0;
+    margin-right: 0;
+    margin-top: 25px;
+    font-size: x-large;
+}
+.iconsDiv .navIcons:link{
+    color: white;
+    padding: 2px 20px;
+}
+.iconsDiv .navIcons:hover{
+    color: red;
+    background-color: black;
+}
+
+.iconsDiv .navIcons:active{
+    color: red;
+    background-color: #313131;
+}
+.iconsDiv .navIcons:visited{
+    color: white;
+}
+
+/* header css */
+.mainHeader{
+    display: flex;
+    margin-left: 150px;
+    margin-top: 100px;
+}
+.leftContent{
+    width: 50%;
+}
+.leftContent h1{
+    font-size: 300%;
+}
+
+.leftContent p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 50px;
+}
+
+.rightImage{
+    width: 50%;
+}
+.imgUser{
+    border-radius: 50%;
+}
+
+.btnGreen{
+    background-color: green;
+    color: white;
+    border: 0;
+    font-size: x-large;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* project section  */
+.projectSection{
+    display: flex;
+    margin-left: 100px;
+}
+.projectSection div{
+    width:20%;
+    margin-left: 5%;
+}
+
+.projectSection div img{
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer{
+    text-align: center;
+}

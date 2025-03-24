@@ -97,3 +97,39 @@ a.navLink:visited{
 .contact-btn:hover{
     background-color: rgb(78, 78, 78);
 }
+
+
+
+.footer{
+    height: 300px;
+    background-color: rgb(227, 227, 227);
+    display: flex;
+}
+.footer .footerLeft{
+    width: 33%;
+    border: 1px solid red;
+    /* display: inline-block; */
+}
+.footer p{
+    margin: 15px 20px;
+}
+.footerLeft p a:link{
+    color:black;
+    text-decoration: none;
+}
+.footerLeft p a:visited{
+    color: black;
+}
+.footer .footerMiddle{
+    width: 33%;
+    border: 1px solid rgb(9, 255, 0);
+    /* display: inline-block; */
+}
+.footer .footerRight{
+    width: 33%;
+    border: 1px solid rgb(13, 0, 250);
+    /* display: inline-block; */
+}
+.copyright{
+    text-align: center;
+}
