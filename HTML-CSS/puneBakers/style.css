@@ -8,10 +8,36 @@
 body{
     margin: 0;
 }
+
+.topNavbar{
+    display: flex;
+    justify-content: space-between;
+    margin: 7px;
+}
+.topNavbar .left{
+    flex:1;
+}
+.topNavbar .left a:link{
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.topNavbar .left a:visited{
+    color: black;
+}
+.topNavbar .right{
+    flex:1;
+    text-align: right;
+    margin-left: 20px;
+}
 /* navbar css  */
 .mainNavbar{ 
     /* background-color: #c8c8c8; */
     height: 90px;
+    position: sticky;
+    top:0;
+    background-color: white;
+    border-bottom: 1px solid rgb(222, 222, 222);
 }
 
 .navList{
@@ -52,6 +78,35 @@ a.navLink:visited{
     width: 100px;
     height: auto;
 }
+
+/* header css */
+.headerSection{
+    width:100%;
+    height: 600px;
+    position: relative;
+}
+.headerSection img{
+    width:100%;
+    height: 100%;
+}
+.headerContent {
+    color: white;
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    text-align: center;
+}
+.headerContent .delicious{
+    font-size: 30px;
+}
+.headerContent h2{
+    font-size: 350%;
+}
+.headerContent .eggless{
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .customActive{
     color: brown !important;
 }
@@ -86,15 +141,15 @@ a.navLink:visited{
     font-size: xx-large;
 
 }
-.contact-btn{
-    background-color: #7b7b7b;  
+.black-btn{
+    background-color: #2c2b2b;  
     /* 00 - ff   00-ff         00-ff; */
     color: white; 
     padding: 10px; 
     font-weight: bolder;
     border: none;
 }
-.contact-btn:hover{
+.black-btn:hover{
     background-color: rgb(78, 78, 78);
 }
 

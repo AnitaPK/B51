@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+/* Styling for Menu */
+.menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.menu ul li {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+    background: #ffcc00;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu ol {
+    /* list-style-type: decimal; */
+    padding-left: 20px;
+}
+
+/* Table Styling */
+.reservation table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.reservation th, .reservation td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.reservation th {
+    background-color: #333;
+    color: white;
+}
+
+.reservation tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.reservation tr:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+/* Responsive Table */
+@media (max-width: 600px) {
+    .reservation table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
