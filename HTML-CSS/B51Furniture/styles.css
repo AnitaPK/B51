@@ -26,8 +26,21 @@ body{
 .logoBrand{
     padding-left: 20px;
 }
-.logo{
+.brand{
+    color: bisque;
     font-size: 30px;
+    text-shadow: 0px 0px 3px black, 0 0 6px red;
+}
+.shadowEffect{
+    text-align: center;
+    text-shadow: 5px 5px 3px red, 0 0 6px green;
+}
+.shadowForP{
+    text-align: center;
+font-size: xx-large;
+    color: white;
+    text-shadow: 2px 2px 4px #ff0000;
+
 }
 .navList{
     display: flex;
@@ -83,7 +96,7 @@ body{
     text-decoration: none;
 }
 .greenBTN{
-    background-color: rgb(70, 160, 150);
+    background-color: #46a096;
     color:white;
     font-weight: 200;
     padding: 9px;
@@ -98,16 +111,31 @@ body{
 .prodList{
 display: flex;
 justify-content: space-around;
+margin-bottom: 10px;
 }
 .card{
     background-color: rgb(240, 238, 238);
     width:18rem;
     height: 300px;
+    padding: 4px;
+}
+.card:hover{
+    box-shadow: 5px 5px 5px 2px #46a096;
 }
 .imgCard{
     width:100%;
     height:80% ;
 }
+.imgCardCircle{
+    border-radius: 40%;
+}
+.imgCardCircle:hover{
+    border-radius: 50%;
+}
+.border10PX{
+    border-radius: 10px;
+}
+
 .titleCard{
     color:rgb(38, 141, 151);
     margin-bottom: 10px;
@@ -149,8 +177,40 @@ padding: 30px 20px 30px 40px;
 .footer{
     background-color: black;
     height: 300px;
+    color: white;
 }
+.commonFooter{
+    display: flex;
+    width: 80%;
+    margin: 5px auto;
+    padding-top: 20px;
+}
+.column{
+    flex:1;
+    text-align: center;
+}
+.call:hover, .email:hover ,.location:hover  {
+    color: #ff0000;
+}
+.call{
 
+}
+.SmallImage{
+
+}
+.imgInFooter{
+    width:60px;
+    height: 60px;
+}
+.contactFormFooter p{
+    font-size: xx-large;
+}
+.customIcon:hover{
+    color:red;
+}
+footer p{
+    text-align: center;
+}
 .topArrow{
     width: 70px;
     position:sticky;
