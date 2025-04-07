@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wsIframe{
+            width: 100%;
+        }
+        .parentDiv{display: flex;height: 700px;background-color: rgb(255, 165, 165);}
+        .leftDiv{flex:20%}
+        .rightDiv{flex: 80%; }
+        .linkList{}
+        .iframeList{width: 100%;height:700px;}
+    </style>
+</head>
+<body>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YsnfnOuSO3o?si=Lhzk-WjdWKgrfGxz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 
+    <div class="parentDiv">
+        <div class="leftDiv">
+        <a href="https://wisdomsprouts.in/" class="linkList" target="iframeOne">Wisdom Sprouts</a><br>
+        <a href="https://erp.wisdomsprouts.in/index.php/login_admin" class="linkList" target="iframeOne">ERP WS</a><br>
+        <a href="http://www.google.com" class="linkList" target="iframeOne">Google</a>
+    </div>
+    <div class="rightDiv">
+        <iframe src="./holi.html" class="iframeList" name="iframeOne"></iframe>
+    </div>
+    </div>
+
+    <iframe src="./holi.html" width="700" height="500"></iframe>
+    <iframe src="https://wisdomsprouts.in/" class="wsIframe"></iframe>
+
+
+    wisdomsprouts 
+    ws erp 
+    google
+</body>
+</html>

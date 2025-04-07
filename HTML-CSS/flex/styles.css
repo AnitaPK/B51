@@ -1,0 +1,77 @@
+h1{
+    font-size: 300%;
+    text-align: center;
+}
+
+.flex-container{
+    height: 700px;
+    display: flex;
+    background-color: aquamarine;
+    /* flex-direction: row-reverse; */
+    gap:3px;
+    /* justify-content: center; */
+    /* flex-wrap: wrap-reverse; */
+
+    align-items:center;
+
+}
+.Item{
+    background-color: blueviolet;
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+.One{
+    order: 1;
+}
+.Two{
+    order:2;
+}
+.Three{
+ order:3;    
+}
+.Four{
+    order:4;
+}
+.Five{
+    order:5;
+}
+.Six{
+    order:6;
+}
+
+
+
+.layout1{
+    width: 100%;
+    height: 500px;
+    background-color: #fb71cf;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.navMain{
+    width: 100%;
+    background-color: #d135a0;
+    height: 50px;
+}
+.header{
+    width: 80%;
+    height: 100px;
+    background-color: #614a5a;
+}
+.IntroArea{
+    width: 80%;
+    height: 100px;
+    background-color: #5b1847;   
+}
+.box1{
+    width: 300px;
+    height: 150px;
+    background-color: #f2cbe6;
+}
+.footer{
+    width: 100%;
+    height: 100px;
+    background-color: gray;
+}
