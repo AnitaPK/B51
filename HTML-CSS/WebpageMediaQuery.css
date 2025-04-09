@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(227, 226, 226);
+}
+.heading1{
+    color: black;
+    font-size: 400%;
+}
+.nav1{
+    display: flex;
+    justify-content: space-around;
+}
+.navFormat{
+    padding: 10px;
+    margin: 20px;
+}
+.cardList{
+height: 300px;
+display: flex;
+justify-content: space-around;
+}
+.card{
+    width: 18rem;
+    height: 250px;
+}
+.car1{
+background-color: green;
+}
+.car2{
+    background-color: chartreuse;
+}
+.car3{
+    background-color: darkgreen;
+}
+.car4{
+    background-color: darkslategray;
+}
+.CantactDivMain{
+    display: flex;
+    height: 300px;
+}
+.contactDiv{
+    background-color: aquamarine;
+    border: 2px solid black;
+    height: 290px;
+    width: 50%;
+}
+
+@media screen and (max-width:650px){
+body{
+    background-color: rgb(255, 145, 145);
+}
+    
+.heading1{
+    color: red;
+    font-size: 200%;
+}
+.cardList,.CantactDivMain {
+    flex-wrap: wrap;
+
+}
+}
+
+@media only screen and (max-width:350px){
+body{
+    background-color: rgb(182, 208, 255);
+}
+.heading1{
+    color: blue;
+    font-size: 100%;
+}
+.nav1{
+    flex-direction: column;
+}
+.contactDiv{
+    flex-direction: column;
+    width: 100%;
+}
+}
