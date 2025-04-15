@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css selectors</title>
+    <style>
+        p {
+            font-size: x-large;
+            color: blue;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+        }
+
+        #main-heading {
+            width: 150px;
+            height: 150px;
+            background-color: gray;
+        }
+
+        div ~ p {
+            color: red;
+        }
+
+        main p {
+            color: cadetblue;
+        }
+        table, th, td{
+            border: 3px ridge green;
+        }
+        th{
+        }
+        td{
+        }
+
+        img[alt="Image"]{
+            border: 4px dotted blue;
+        }
+        img[alt^="Image"]{
+            border: 4px ridge black;
+        }
+        img[alt$="Image"]{
+            border: 4px dashed green;
+        }
+        img[alt|="Image"]{
+            border: 4px solid rgb(255, 30, 68);
+        }
+        img[alt*="Image"]{
+            padding: 10px;
+            outline: 3px solid rgb(238, 255, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./assets/black.jpg" alt="Imageblack" >
+    <img src="./assets/blue.png" alt="colorImageBlue" />
+    <img src="./assets/green.jpg" alt="Image-green" />
+    <img src="./assets/pink.jpg" alt="pink-Image" />
+    <img src="./assets/orange.jpg" alt="orange Image color" />
+    <img src="./assets/purple.png" alt="Image " >
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus earum nulla veritatis sapiente labore
+        exercitationem ducimus sed eum amet impedit!</p>
+    <div class="box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur, vero.</div>
+    <div id="main-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, distinctio!</div>
+
+    <div>
+        <p>1. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro animi eaque aperiam quam cumque!
+            Consequuntur eveniet alias enim non id.</p>
+        <p>2. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro animi eaque aperiam quam cumque!
+            Consequuntur eveniet alias enim non id.</p>
+        <main>
+            <p>3. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, reiciendis.</p>
+        </main>
+        <div>
+            <p>4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, minus.</p>
+            <p>5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, minus.</p>
+
+        </div>
+        <p>6. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, nulla.</p>
+        <p>7. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro animi eaque aperiam quam cumque!
+            Consequuntur eveniet alias enim non id.</p>
+        <div>
+            <p>8. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, minus.</p>
+            <p>9. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, minus.</p>
+
+        </div>
+        <p>10. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, nulla.</p>
+    </div>
+    <p>11. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, nulla.</p>
+
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Fav Movie</th>
+        </tr>
+        <tr>
+            <td>Swati</td>
+            <td>Hum Sath Sath Hai</td>
+        </tr>
+        <tr>
+            <td>Namrata</td>
+            <td>Chhava</td>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>

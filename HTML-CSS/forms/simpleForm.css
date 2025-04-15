@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(228, 227, 227);
+}
+
+section{}
+
+.rgisterForm{
+    width:40%;
+    margin: 20px auto;
+    border: 1px solid gray;
+    padding: 20px;
+    background-color: rgb(226, 240, 255);
+    
+}
+.rgisterForm h1, p{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.FormDetails{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+.inputGroup{
+display: flex;
+}
+.inputGroup label{
+    flex: 1;
+}
+.inputGroup input{
+    flex: 2;
+}
+
+input[type="text"]:focus{
+ background-color: blue;
+}

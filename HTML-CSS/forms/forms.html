@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title> 
+    <style>
+        .container{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    background-color:  white;
+    padding: 2vw;
+    margin: 25px auto;
+}
+.container div{
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+
+<body style="background-color: rgb(203, 203, 203);">
+    <form>
+        <div class="container">
+        <div>
+            <h1>Register</h1>
+            <p>Kindly fill in this form to register.</p>
+            </div>
+        <div>
+            <label for="username"><b>Username</b></label><br>
+            <input type="text" placeholder="Enter username" name="username" id="username" required />
+        </div>
+        <div>
+
+            <label for="email"><b>Email</b></label><br>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required />
+        </div>
+        <div>
+
+            <label for="pwd"><b>Password</b></label><br>
+            <input type="password" placeholder="Enter Password" name="pwd" id="pwd" required />
+        </div>
+        <div>
+
+            <label for="pwd-repeat"><b>Repeat Password</b></label><br>
+            <input type="password" placeholder="Repeat Password" name="pwd-repeat" id="pwd-repeat" required />
+        </div>
+        <div>
+
+            <button type="submit">Register</button>
+
+            <div>
+                <p>Already have an account? <a href="#">Log in</a>.</p>
+            </div>
+        </div>
+    </div>
+    </form>
+
+</body>
+
+</html>

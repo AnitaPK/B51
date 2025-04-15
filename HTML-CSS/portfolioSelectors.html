@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Universal Selector */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Type Selector */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* ID Selector */
+#main-header {
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Class Selector */
+.nav-links li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hover Pseudo-class */
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Descendant Selector */
+section h2 {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Project Cards */
+.project-card {
+  background: white;
+  padding: 15px;
+  margin: 10px;
+  border-left: 5px solid teal;
+}
+
+/* Attribute Selector */
+input[type="text"],
+input[type="email"],
+textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  background: teal;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Pseudo-class for button */
+button:hover {
+  background: #006666;
+}
+
+/* Footer Styling */
+footer {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+  </style>
+</head>
+<body>
+
+  <header id="main-header">
+    <h1 class="name">John Doe</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p class="description">I am a frontend developer passionate about UI design and web accessibility.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>Responsive portfolio built with HTML and CSS.</p>
+    </div>
+    <div class="project-card">
+      <h3>To-Do App</h3>
+      <p>Simple to-do list with local storage.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 John Doe</p>
+  </footer>
+
+</body>
+</html>
