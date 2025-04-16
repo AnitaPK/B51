@@ -28,13 +28,14 @@ section{}
 }
 .inputGroup{
 display: flex;
+gap:25px;
 }
-.inputGroup label{
+/* .inputGroup label{
     flex: 1;
 }
 .inputGroup input{
     flex: 2;
-}
+} */
 
 input[type="text"]:focus{
  background-color: blue;

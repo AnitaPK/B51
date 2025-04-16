@@ -15,11 +15,57 @@
 
         <div class="inputGroup">
         <label for="name">Name:</label>
-        <input type="text" id="name" value="John" name="name" disabled/>
+        <input type="text" id="name" value="John" name="name" readonly/>
     </div>
     <div class="inputGroup">
         <label for="mobNumber">Mobile Number</label>
         <input type="text" id="mobNumber" name="mobile_number" placeholder="+91-123-4567-890"/>
+    </div>
+    <div class="inputGroup">
+        <lable> Add Mobile number</lable>
+        <input type="tel" pattern="+91-[0-9]{3}-[0-9]{4}-[0-9]{3}" name="mobNumberPattern" required>
+    </div>
+<!-- 
+    +91-123-4567-890 mobile number reg-ex 
+^[A-Z]{1}[a-zA-Z0-9]@widomsprouts.in
+[a-zA-Z0-9*#$%_-]{8}  password 8 characters
+-->
+
+
+    <div class="inputGroup">
+        <label for="gender">Select Gender</label>
+        <input type="radio" name="gender" value="female">Female
+        <input type="radio" name="gender" value="'male">Male
+    </div>
+    <div class="inputGroup">
+        <label for="subjects">Select Subjects</label>
+        <input type="checkbox" name="sub1" value="html">HTML
+        <input type="checkbox" name="sub2" value="css">CSS
+        <input type="checkbox" name="sub3" value="js">Javascript
+    </div>
+    <div class="inputGroup">
+        <label>Upload File</label>
+        <input type="file" >
+    </div>
+    <div class="inputGroup">
+        <lable>Select Color</lable>
+        <input type="color" value="#ff0000" name="color1">
+    </div>
+    <div class="inputGroup">
+        <label>Select Date</label>
+        <input type="date" >
+    </div>
+    <div class="inputGroup">
+        <label>Select Date</label>
+        <input type="datetime-local" >
+    </div>
+    <div class="inputGroup">
+        <label>Select number</label>
+        <input type="number" value="5" max="15" min="5" step="3">
+    </div>
+    <div class="inputGroup">
+        <label>Enter Pincode</label>
+        <input type="number" value="1041" size="4" >
     </div>
     <div class="inputGroup">
         <label for="email">Email:</label>
