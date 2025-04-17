@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.form3{
+    height: 300px;
+    display: flex;
+    margin: 20px;
+    background-color: white;
+}
+.leftDiv{
+    background-color: rgb(26, 62, 62);
+    color: white;
+    width: 50%;
+    padding: 30px;
+    border-radius: 20px 130px 130px 20px;
+
+}
+.rightDiv{
+    background-color: white;
+    width: 50%;
+}
