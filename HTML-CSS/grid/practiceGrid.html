@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .gridContainer{
+            display: grid;
+            background-color: red;
+
+
+            /* way to add cols rows -  1  */
+            /* grid-template-columns: 100px 100px 100px 200px; */
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 200px 200px;
+
+
+            gap:20px;
+            /* column-gap: 20px; */
+            /* row-gap: 20px; */
+
+            /* way to add cols rows - 2  */
+
+
+        }
+        .Item1{
+            background-color: pink;
+            padding: 20px;
+        }
+        .gridContainer1{
+            display: grid;
+            color: white;
+        }
+        .nav{
+            background-color: rgb(142, 70, 82);
+            padding: 20px;
+            grid-column: 1 / 4;
+            grid-row: 1 / 2;
+        }
+        .aside{
+            background-color: rgb(57, 51, 52);
+            padding: 20px;
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+        }
+        .contentMain{
+            background-color: rgb(199, 48, 73);
+            padding: 20px;
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+        }
+        .footer{
+            background-color: rgb(228, 215, 217);
+            padding: 20px;
+            grid-column: 1 / 4;
+            grid-row: 4 / 5;
+        }
+        .gridContainer3{
+            display: grid;
+            grid-template-areas: 'nav3 nav3 nav3'
+                                 'a3 c3 c3'
+                                 'a3 c3 c3'
+                                 'foo foo foo';
+        }
+        .nav3{
+            background-color: aquamarine;
+            grid-area: nav3;
+           
+        }
+        .aside3{
+           background-color: chartreuse;
+           grid-area: a3;
+        }
+        .contentMain3{
+           background-color: brown;
+           grid-area: c3;
+        }
+        .footer3{
+           background-color: gray;
+           grid-area: foo;
+        }
+    </style>
+</head>
+<body>
+    <div class="gridContainer">
+        <div class="Item1">Item1</div>
+        <div class="Item1">Item2</div>
+        <div class="Item1">Item3</div>
+        <div class="Item1">Item4</div>
+        <div class="Item1">Item5</div>
+        <!-- <div class="Item1">Item6</div> -->
+    </div>
+<hr>
+    <div class="gridContainer1">
+        <div class="nav">Navbar</div>
+        <div class="aside">Aside</div>
+        <div class="contentMain">Content main
+            <div>Content One</div>
+            <div>Content Two</div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+    <hr>
+    <hr>
+
+    <div class="gridContainer3">
+        <div class="nav3">Navbar</div>
+        <div class="aside3">Aside</div>
+        <div class="contentMain3">Content main
+            <div>Content One</div>
+            <div>Content Two</div>
+        </div>
+        <div class="footer3">Footer</div>
+    </div>
+
+    <br>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur optio eveniet adipisci laborum, officiis quod id blanditiis, numquam fugiat vitae eligendi cumque distinctio aperiam nulla amet ipsam consequuntur. Iusto voluptatum excepturi adipisci sed placeat aliquid laudantium distinctio ipsa itaque nulla?</p>
+</body>
+</html>
