@@ -15,7 +15,7 @@ body{
     height: 120px;
 }
 .leftHeader{
-
+    margin-bottom: 10px;
 }
 .logo{
     display: inline-block;
@@ -23,7 +23,7 @@ body{
     height: 50px;
 }
 .rightHeader{
-
+    margin-bottom: 10px;
 }
 .GreenBTN{
     display: inline-block;
@@ -203,10 +203,13 @@ body{
 
 .footeer{
     display: flex;
-    padding: 30px;
+    /* padding: 30px; */
     color: white;
 }
-
+.fooColumn{
+    flex: 1;
+    background-color: blue;
+}
 .socialMedia{
     padding: 30px;
 }
@@ -273,4 +276,38 @@ color: green;
 }
 .card:hover .btns{
 display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:603px){
+body{
+    background-color: rgb(255, 234, 238);
+}
+.mainHeader{
+    flex-direction: column;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.navList{
+    display: block;
+}
+.leftRigthSection{
+    display: none;
+}
+
+
+.footeer{
+    flex-direction: column;
+}
 }

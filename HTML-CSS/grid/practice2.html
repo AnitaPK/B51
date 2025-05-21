@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .containerGrid{
+            background-color: rgb(149, 254, 242);
+            display: grid;
+            height: 650px;
+/* 
+            grid-template-columns: 1fr 1fr 1fr;   
+            grid-template-rows: 200px 200px 200px;   */
+
+
+
+            
+        }
+        .Item{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        .fruitContainer{
+            /* width:700px; */
+            height: 700px;
+            background-color: beige;
+            display: grid;
+            gap:10px
+        }
+        .grapes{
+            grid-row-start: 1;
+            grid-row-end: 1;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            background-color: purple;
+        }
+        .straberry{
+            grid-row-start: 1;
+            grid-row-end: 1;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            background-color: rgb(255, 0, 85);
+        }
+        .watermelon{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            background-color: red;
+        }
+        .orange{
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-color: orange;
+        }
+        .payapa{
+          grid-row-start: 3;
+            grid-row-end: 5;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-color: rgb(221, 255, 0);
+        }
+        .pinnapple{
+            grid-row-start: 3;
+            grid-row-end: 5;
+            grid-column-start: 3;
+            grid-column-end: 5;
+            background-color: rgb(34, 255, 0);
+        }
+        .layoutContainer{
+            display: grid;
+            color: white;
+            grid-template-areas: 'H H H H'
+                                 'nav nav nav nav'
+                                 'asd mainC mainC advt'
+                                 'foo foo foo foo';
+        }
+        .header1{
+            height: 150px;
+            background-color: brown;
+            grid-area: H;
+        }
+        .navbar{
+            height: 90px;
+            background-color: beige;
+            color: brown;
+            grid-area: nav;
+        }
+
+        .footer{
+            background-color: rgb(57, 57, 57);
+            height: 200px;
+            grid-area: foo;
+        }
+        .aside{
+            background-color: aqua;
+            /* height: 600px; */
+            overflow: auto;
+            grid-area: asd;
+        }
+        .mainContent{
+            background-color: aquamarine;
+            height: 300px;
+            grid-area: mainC;
+        }
+        .advertise{
+            background-color: chartreuse;
+            height: 300px;
+            grid-area: advt;
+        }
+    </style>
+</head>
+<body>
+    <div class="layoutContainer">
+        <div class="header1">Header</div>
+        <div class="navbar">Navbar</div>
+        <div class="aside">aside</div>
+        <div class="mainContent">mainContent</div>
+        <div class="advertise">advertise</div>
+        <div class="footer">FOOTER</div>
+
+    </div>
+
+
+    <div class="fruitContainer">
+        <div class="grapes"></div>
+        <div class="straberry"></div>
+        <div class="watermelon"></div>
+        <div class="orange"></div>
+        <div class="payapa"></div>
+        <div class="pinnapple"></div>
+    </div>
+    <div class="containerGrid">
+        <div class="Item "></div>
+        <div class="Item"></div>
+        <div class="Item"></div>
+        <div class="Item"></div>
+        <div class="Item"></div>
+        <div class="Item"></div>
+
+    </div>
+</body>
+</html>
