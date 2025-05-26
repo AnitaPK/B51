@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .divCon {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            transition: background-color 5s, transform 5s, color 5s, font-size 5s;
+        }
+
+        .divCon:hover {
+            /* transform: scale(2,2); */
+            background-color: black;
+            color: white;
+            font-size: x-large;
+            /* transform: translate(200px, 200px); */
+            /* transform: rotateX(45deg); */
+            transform: skew(10deg, 20deg);
+        }
+
+        .DivAnimation {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            font-weight: bolder;
+            font-size: larger;
+            padding: 25px 15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            animation-name: b51;
+            animation-duration: 3s;
+            animation-delay: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        /* @keyframes b51{
+            from{
+                background-color: red;
+                color: black;
+            }
+            to{
+                background-color: green;
+                color: yellow;
+                transform: translateX(300px);
+            }
+        } */
+        @keyframes b51 {
+            0% {
+                background-color: red;
+                color: black;
+                transform: skew(10deg);
+            }
+            20%{
+                transform: rotate(90deg);
+            }
+            40%{
+                transform: rotate(140deg);
+            }
+            50% {
+                background-color: green;
+                color: yellow;
+                transform: translateX(150px);
+            }
+            60%{
+                transform: rotate(140deg);
+            }
+            70%{
+                transform: translateX(300px);
+            }
+            100%{
+                background-color: red;
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divCon">HELLO</div>
+    <div class="DivAnimation">CSS</div>
+</body>
+
+</html>
