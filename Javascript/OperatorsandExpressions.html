@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Assignment 1: Arithmetic Operations 
+
+        n1 = Number(prompt("Enter first Number"))
+        n2 = Number(prompt("Enter second Number"))
+        console.log('Addition n1+n2 : ', n1+n2)
+        console.log('Suntraction n1-n2 : ', n1-n2)
+        console.log('Multipliction n1*n2 : ', n1*n2)
+        console.log('Division n1/n2 : ', n1/n2)
+        console.log('Modulus n1%n2 : ', n1%n2)
+
+    //   Assignment 2: Comparison Operators
+      
+        console.log("first number greater than second?", n1>=n2)
+console.log("Is first number less than second?", n1<n2) 
+console.log('Are the two numbers equal?', n1==n2)
+
+// Assignment 3: Logical Operators
+// Write a program to check a student's eligibility for a scholarship based on these conditions:
+// The student's score in Math should be greater than or equal to 90 AND the score in Science should be greater than or equal to 85.
+// Log whether the student is eligible or not.
+
+Math = 80;
+Science = 40;
+if(Math>=90 && Science >=85){
+    console.log("Eligible")
+}else{
+    console.log("not")
+}
+
+
+
+
+
+
+// Assignment 10: Shopping Discount
+// Write a program to calculate the discount on a purchase:
+// If the total amount is greater than $100, apply a 10% discount.
+// Use assignment operators to update the total amount after the discount.
+
+totalAmount = 200
+
+if(totalAmount > 100){
+    finalPrice = totalAmount - totalAmount*10/100
+}else{
+    finalPrice = totalAmount
+}
+    </script>
+</body>
+</html>
