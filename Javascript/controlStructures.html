@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container shadow p-4">
+    <h3>Exercise 1: Number Checker</h3>
+    <input type="number" id="asgn1" class="form-control w-25 m-1"/>
+    <button id="checkNumber" class="btn btn-primary">Check Number</button>
+    <div id="Asgn1Result"></div>
+</div>
+
+<div class="container shadow p-4 mt-1">
+    <h3>Exercise 2: Multiplication Table</h3>
+    <input type="number" id="asgn2" class="form-control w-25 m-1"/>
+    <button id="tableNumber" class="btn btn-primary">Check Number</button>
+    <div id="Asgn2Result"></div>
+</div>
+
+
+
+<script>
+    // assgn 1
+
+    asgn1 = document.querySelector("#asgn1")
+    Asgn1Result =  document.querySelector("#Asgn1Result")
+
+    function checkNumber(){
+        n1 = Number(asgn1.value) 
+        console.log(n1);
+        if(n1>0){
+            console.log("Positive");
+            Asgn1Result.textContent = `number  ${n1} is Positive`
+        }else if(n1<0){
+            console.log("Negetive");
+            Asgn1Result.textContent = `Number ${n1} is NEGETIVE`
+        }else{
+            console.log("Zero")
+            Asgn1Result.textContent = `You have entered ZERO`
+        }
+        asgn1.value = ''
+    }
+
+    document.querySelector("#checkNumber").addEventListener('click',checkNumber)
+
+    // assignment 2 
+
+    asgn2 = document.querySelector("#asgn2")
+    Asgn2Result =  document.querySelector("#Asgn2Result")
+
+    function createTable(){
+        n2 = Number(asgn2.value) 
+        for(let i = 1; i<=10; i++){
+         console.log("number * ",i, " ",n2 * i) 
+}
+    }
+
+    document.querySelector("#tableNumber").addEventListener('click',createTable)
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
