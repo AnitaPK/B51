@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Site</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <div class="container w-50">
+        <input type="number" id="n1" />
+        <input type="number" id="n2" />
+        =
+        <span id="result"></span>
+        <br>
+        <br>
+
+        <button class="btn btn-success" onclick="addition()">+</button>
+        <button class="btn btn-success" onclick="subtract()">-</button>
+        <button class="btn btn-success" onclick="mutiply()">*</button>
+        <button class="btn btn-success" onclick="divide()">/</button>
+    </div>
+<hr>
+<input type="number" id="fact" />
+<button class="btn btn-outline-danger" onclick="getNumber()">Check Factorial</button>
+<div id="factResult"></div>
+
+<h1>
+    <pre>
+
+       1. Create a function to calculate the factorial of a number.
+       2. Write a function to check if a number is even or odd.
+       3. Define a function to reverse a given string.
+       4. Implement a function that finds the largest of three numbers.
+       5.  Write a function that accepts an array and returns the sum of its elements.
+       6. Create a function to calculate the area and perimeter of a rectangle.
+       7. Implement a function to determine if a given year is a leap year.
+       8. Write a function to generate a multiplication table for a number.
+       9. Create a function that checks if a string is a palindrome.
+       10 Define a function to find the greatest common divisor (GCD) of two numbers.
+
+
+    </pre>
+</h1>
+    <script>
+        let n1 = document.querySelector('#n1')
+        let n2 = document.querySelector('#n2')
+        let result1 = document.querySelector("#result")
+
+        function addition() {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result1.textContent = num1 + num2;
+
+        }
+
+        const subtract = () => {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result1.textContent = num1 - num2;
+        }
+        const mutiply = () => {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            result1.textContent = num1 * num2;
+        }
+        function divide() {
+            num1 = Number(n1.value)
+            num2 = Number(n2.value)
+            if (num2 == 0) {
+                result1.textContent = "can't divide"
+            } else {
+                result1.textContent = num1 / num2;
+            }
+        }
+    </script>
+
+
+
+    <script>
+        let factNumber = document.querySelector('#fact')
+        let btnFact = document.querySelector('#factButton')
+        let resultElmt = document.querySelector('#factResult')
+        let factorial = 1
+        function findFactorial(number) {
+            // console.log(number)
+            if (number == 0 || number == 1) {
+                factorial = 1;
+                return factorial
+            } else {
+                for (let i = 1; i <= number; i++) {
+                    factorial = factorial * i
+                }
+                return factorial
+            }
+        }
+        function getNumber(){
+         x = Number(factNumber.value)
+         res = findFactorial(x)
+        resultElmt.textContent = res
+        }
+
+    </script>
+</body>
+
+</html>
