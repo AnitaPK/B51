@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+}
+.customShadowForText{
+    text-shadow: 2px 2px 2px black;
+}
+
+.nav-link{
+    font-size: 20px !important;
+}
+
+.customCatImg{
+    width: 150px !important;
+    height: 150px !important;
+}
+
+.custom-nav-link:link{
+    color: black;
+    text-decoration: none;
+}
+.custom-nav-link:hover{
+    color: green;
+    text-decoration: underline;
+}
+.custom-nav-link:visited{
+    color: black;
+}
