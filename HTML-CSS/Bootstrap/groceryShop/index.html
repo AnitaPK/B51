@@ -1,155 +1,358 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- custom css  -->
-    <link rel="stylesheet" href="./styles.css" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- custom css  -->
+  <link rel="stylesheet" href="./styles.css" />
 
-    <title>Grocery</title>
-  </head>
-  <body>
-    <h1 class="bg-success text-light text-center py-2 customShadowForText" >Online Grocery Shop</h1>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- navbar  -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand customShadowForText" href="#">GROCERY</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gallary</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Explore
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Orders</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+  <title>Grocery</title>
+</head>
+
+<body>
+  <h1 class="bg-success text-light text-center py-2 customShadowForText">Online Grocery Shop</h1>
+
+  <!-- navbar  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand customShadowForText" href="#">GROCERY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallary</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Explore
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contact Us</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Login
+</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+<div class="container-fluid" style="height: 550px;padding:0">
+  <div id="carouselExampleCaptions" class="carousel slide carousel-fade carousel-dark" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./assets/header1.jpeg" class="d-block" alt="..." style="height: 550px;width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:white;text-shadow:2px 2px 2px black;">First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="./assets/header2.jpeg" class="d-block w-100" alt="..." style="height: 550px;width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/sectionOne.jpeg" class="d-block w-100" alt="..." style="height: 550px;width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
     </div>
   </div>
-</nav>
-
-
-
-
-
-
-    <h1 class="bg-success text-light text-center py-2 customShadowForText" >Shop By Category</h1>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
-                <img src="./assets/dairyCat.jpeg" alt="img not shown" class="img-fluid rounded-circle customCatImg"/>
-            </div>
-                <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
-                <img src="./assets/fruitsCat.jpg" alt="img not shown" class="img-fluid rounded-circle customCatImg"/>
-            </div>
-                        <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
-                <img src="./assets/snacksCat.jpeg" alt="img not shown" class="img-fluid rounded-circle customCatImg"/>
-            </div>
-                        <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
-                <img src="./assets/spicesCat.jpeg" alt="img not shown" class="img-fluid rounded-circle customCatImg"/>
-            </div>
-        </div>
-    </div>
-
-
-<div class="container-fluid mb-2" >
-    <div class="row" style="background-color: rgb(242, 255, 242);;">
-        <div class="col-12 col-md-6">
-            <img src="./assets/sectionOne.jpeg" class="rounded-circle" style="width: 100%;height: 100%;"/>
-        </div>
-        <div class="col-12 col-md-6">
-            <h2 class="text-center text-success ">Lorem ipsum dolor sit amet consectetur.</h2>
-            <p class="lead p-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore harum voluptas minus ut ab consectetur iusto dicta libero deleniti cum? Aliquid debitis eligendi neque harum vero quaerat officiis praesentium provident?</p>
-            <div class="text-center"><button class="btn btn-outline-success px-5">Find More</button></div>
-        </div>
-    </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<footer>
+</div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <p><a href="" class="custom-nav-link">Explore</a></p>
-                    <p><a href="" class="custom-nav-link">Explore Explore</a></p>
-                    <p><a href="" class="custom-nav-link">Explore</a></p>
-                    <p><a href="" class="custom-nav-link">Explore</a></p>
-                    <p><a href="" class="custom-nav-link">Explore</a></p>
-                    <p><a href="" class="custom-nav-link">Explore</a></p>
-                    
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">ExploreExplore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    
-                </div><div class="col-12 col-md-6 col-lg-3">
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link"> Explore Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    
-                </div><div class="col-12 col-md-6 col-lg-3">
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    <p><a href="" class="nav-link">Explore Explore</a></p>
-                    <p><a href="" class="nav-link">Explore</a></p>
-                    
-                </div>
-            </div>
+
+
+
+  <h1 class="bg-success text-light text-center py-2 customShadowForText">Shop By Category</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
+        <div class="card" style="width:160px">
+        <a href="#"><img src="./assets/dairyCat.jpeg" alt="img not shown" class="img-fluid rounded-circle customCatImg" />
+      
+            <div class="card-img-overlay">
+    <h6 class="nav-link">Dairy</h6>
+    </a>
         </div>
+ 
+        </div>
+        </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
+        <img src="./assets/fruitsCat.jpg" alt="img not shown" class="img-fluid rounded-circle customCatImg" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
+        <img src="./assets/snacksCat.jpeg" alt="img not shown" class="img-fluid rounded-circle customCatImg" />
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2 text-center">
+        <img src="./assets/spicesCat.jpeg" alt="img not shown" class="img-fluid rounded-circle customCatImg" />
+      </div>
+    </div>
+  </div>
+
+
+  <h1 class="bg-success text-center py-2 customShadowForText">Products</h1>
+  <div class="container ">
+    <div class="row ">
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/Adrak.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/bringle.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/brocc.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+       <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/dodaka.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/greenpeace.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/lasun.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+        <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/bringle.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3 mb-2">
+       <div class="card mx-auto" style="width: 18rem;">
+          <img src="./assets/dodaka.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="container-fluid mb-2">
+    <div class="row" style="background-color: rgb(242, 255, 242);;">
+      <div class="col-12 col-md-6">
+        <img src="./assets/sectionOne.jpeg" class="rounded-circle" style="width: 100%;height: 100%;" />
+      </div>
+      <div class="col-12 col-md-6">
+        <h2 class="text-center text-success ">Lorem ipsum dolor sit amet consectetur.</h2>
+        <p class="lead p-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore harum voluptas minus ut
+          ab consectetur iusto dicta libero deleniti cum? Aliquid debitis eligendi neque harum vero quaerat officiis
+          praesentium provident?</p>
+        <div class="text-center"><button class="btn btn-outline-success px-5">Find More</button></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3">
+          <p><a href="" class="custom-nav-link">Explore</a></p>
+          <p><a href="" class="custom-nav-link">Explore Explore</a></p>
+          <p><a href="" class="custom-nav-link">Explore</a></p>
+          <p><a href="" class="custom-nav-link">Explore</a></p>
+          <p><a href="" class="custom-nav-link">Explore</a></p>
+          <p><a href="" class="custom-nav-link">Explore</a></p>
+
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">ExploreExplore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link"> Explore Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+          <p><a href="" class="nav-link">Explore Explore</a></p>
+          <p><a href="" class="nav-link">Explore</a></p>
+
+        </div>
+      </div>
+    </div>
     <div>
-        Icons
+      Icons
     </div>
 
     <div class="text-center">
-        &copy; Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fuga laudantium?
+      &copy; Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci, fuga laudantium?
     </div>
-</footer>
+  </footer>
 
 
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+        <button type="button" class="btn btn-primary">Submit</button>
+
+</form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener('load',()=>{
+    onloadModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+    onloadModal.show()
+  })
+</script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
 
-    
-  </body>
 </html>
