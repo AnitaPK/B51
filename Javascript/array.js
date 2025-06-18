@@ -77,3 +77,91 @@ for(i in fruits){
 }
     console.log('End of for In' )
 
+//  Calculate the Sum of Array Elements
+
+marks = [35,100,78,54,39,99]
+total = 0
+for(i=0;i<marks.length; i++){
+//  total = total + marks[i]
+    total += marks[i]
+}
+
+console.log(total);
+
+highestMarks = 0
+secondHighestMarks = 0
+
+for(i=0;i<marks.length; i++){
+    if(highestMarks < marks[i]){
+        highestMarks = marks[i]
+    }
+}
+
+console.log(highestMarks);
+
+// MERN 
+// forEach, map, filter, find, some, findIndex, reduce 
+
+student = [23574, 'Shrihari', 20, 'BCS', 9.9]
+
+student.forEach((element, index)=>{
+    console.log("Info " ,element)
+})
+
+fruits.forEach((e)=>{
+    console.log(e, "  :  I like this fruit")
+})
+
+console.log(marks)
+marks.forEach((x)=>{
+    console.log(x+5)
+})
+newMarks = marks.map((x)=>{
+    return x+5
+})
+
+console.log(newMarks)
+
+numArray = [1,2,3,4,5,6,7,8,9,10]
+sqNumber = numArray.map((number)=>{
+    return number * number
+})
+console.log(sqNumber)
+
+sq1number = numArray.map((x)=>x*x)
+
+console.log(sq1number);
+
+evenArray = numArray.filter((z)=>{
+    if(z % 2 == 0){
+        return z
+    }
+})
+
+console.log(evenArray)
+
+
+// find index number of 78 
+let index78
+for(i=0; i<marks.length;i++){
+    if(marks[i] == 78){
+        index78 = i
+    }
+}
+console.log("index78" , index78)
+i_78 = marks.findIndex((e)=> e == 78)
+console.log(i_78, "i_78")
+
+// Create a program to reverse an array manually.
+
+revNumArray = []
+numArray
+
+l = numArray.length
+
+
+for(i = l-1; i>= 0; i--){
+    revNumArray.push(numArray[i])
+}
+console.log(revNumArray)
+
