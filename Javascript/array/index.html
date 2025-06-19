@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<style>
+    ul li{
+
+    }
+    .liClass{
+        color: red;
+    }
+</style>  
+</head>
+<body>
+    <div class="container mt-2 p-3" style="background-color: rgb(206, 206, 206);">
+<h1>Assignment1</h1>
+<div class="container w-50 m-3 ">
+<input type="text" id="taskName" class="form-control mb-2"/>
+ <button class="btn btn-primary" onclick="addNewTask()">Add Task</button>
+<button onclick="clearAllTasks()" class="btn btn-outline-primary">Clear All</button>
+<ul id="tasksShow"></ul>
+</div>
+</div>
+
+<hr>
+
+<div class="container mt-2 p-3" style="background-color: rgb(206, 206, 206);">
+<h1>Assignment2</h1>
+<div class="container w-50 m-3 ">
+
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            <th scope="col">4</th>
+            <th scope="col">5</th>
+            <th scope="col">6</th>
+            <th scope="col">7</th>
+            <th scope="col">8</th>
+            <th scope="col">9</th>
+            <th scope="col">10</th>
+            </tr>
+        </thead>
+        <tbody id="CreateRow"></tbody>
+    </table>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+<script src="./scripts.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+
+</body>
+</html>

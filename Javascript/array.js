@@ -89,11 +89,19 @@ for(i=0;i<marks.length; i++){
 console.log(total);
 
 highestMarks = 0
-secondHighestMarks = 0
 
 for(i=0;i<marks.length; i++){
     if(highestMarks < marks[i]){
         highestMarks = marks[i]
+    }
+}
+
+secondHighestMarks = 0;
+
+firstLargestMarks = 0;
+for(x of numArray){
+    if(highestMarks > marks[i] && secondHighestMarks < marks[i]){
+        secondHighestMarks = marks[i]
     }
 }
 
