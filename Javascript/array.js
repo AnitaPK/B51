@@ -99,11 +99,11 @@ for(i=0;i<marks.length; i++){
 secondHighestMarks = 0;
 
 firstLargestMarks = 0;
-for(x of numArray){
-    if(highestMarks > marks[i] && secondHighestMarks < marks[i]){
-        secondHighestMarks = marks[i]
-    }
-}
+// for(x of numArray){
+//     if(highestMarks > marks[i] && secondHighestMarks < marks[i]){
+//         secondHighestMarks = marks[i]
+//     }
+// }
 
 console.log(highestMarks);
 
@@ -173,3 +173,8 @@ for(i = l-1; i>= 0; i--){
 }
 console.log(revNumArray)
 
+strfruit = JSON.stringify(fruits);
+console.log(strfruit, typeof(strfruit));
+
+arrFruit = JSON.parse(strfruit);
+console.log(arrFruit, typeof(arrFruit))
