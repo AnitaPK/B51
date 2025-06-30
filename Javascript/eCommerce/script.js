@@ -90,13 +90,23 @@ const products = [
 
 const cart = [];
 
-function localSaveCart(cartFromLocal=cart) {
+// totalPrice = 0
+
+function localSaveCart(cartFromLocal=cart ) {
   localStorage.setItem("cart51", JSON.stringify(cartFromLocal));
 }
+
 
 function localGetCart() {
   return JSON.parse(localStorage.getItem("cart51"));
 }
+// function setTotalPriceToLocal(totalPrice=0){
+//   localStorage.setItem('TotalPrice', JSON.stringify(totalPrice))
+
+// }
+// function getTotalPriceFromLocal(){
+//   return JSON.parse(localStorage.getItem('TotalPrice'))
+// }
 
 function localSaveProducts() {
   localStorage.setItem("products51", JSON.stringify(products));
@@ -106,8 +116,43 @@ function localGetProducts() {
   return JSON.parse(localStorage.getItem("products51"));
 }
 
+
+
+pNameElmt  = document.querySelector("#pName") 
+pDescriptionElmt = document.querySelector("#pDescription") 
+pImageElmt = document.querySelector("#pImage") 
+pCategoryElmt  = document.querySelector("#pCategory")
+pPriceElmt =document.querySelector("#pPrice")
+
+
+
+
+const totalPriceElmt = document.querySelector("#totalPrice")
 const addproductsElmt = document.querySelector("#addproducts");
 const cartLengthElmt = document.querySelector("#cartLength");
+
+
+function AddNewProdcut(){
+  newProdcutName = pNameElmt.value;
+  newProductDescription = pDescriptionElmt.value
+  newProductImage = pImageElmt.value
+  newCategory = pCategoryElmt.value
+  newProdcutPrice = pPriceElmt.value
+
+
+  newProduct =   {
+    id: Date.now(),
+    name: newProdcutName,
+    description: newProductDescription,
+    category: newCategory,
+    price: Number(newProdcutPrice),
+    image: newProductImage,
+  }
+console.log(newProduct);
+
+
+}
+
 
 function addToCart(p_id) {
   console.log("*****", p_id);
@@ -131,6 +176,8 @@ function addToCart(p_id) {
   console.log(cart);
   localSaveCart(cartFromLocal);
   renderCart();
+
+
 }
 
 function renderProducts(productsRender = products) {
@@ -158,12 +205,21 @@ function renderProducts(productsRender = products) {
 `
     )
     .join("");
+
 }
 
 // localSaveProducts();
 // renderProducts();
 
 const cartTableElmt = document.querySelector("#cartTable");
+function removeOfCart(ID){
+  cartFromLocalArray = localGetCart()
+  const index = cartFromLocalArray.findIndex((p)=> p.id == ID)
+  cartFromLocalArray.splice(index, 1)
+  localSaveCart(cartFromLocalArray)
+  renderCart();
+
+}
 
 function renderCart() {
   const cartFromLocal = localGetCart();
@@ -171,13 +227,20 @@ function renderCart() {
   cartTableElmt.innerHTML = cartFromLocal.map(
     (p,i) => `
                             <tr>
-                              <th scope="row">${i}</th>
+                              <th scope="row">${i+1}</th>
                               <td>${p.name}</td>
                               <td>${p.price}</td>
-                              <td><button class="btn btn-danger" >Remove from cart</button></td>
+                              <td><button class="btn btn-danger" onclick="removeOfCart(${p.id})">Remove from cart</button></td>
                             </tr>
     `
-  );
+  ).join('');
+  let totalPrice1 = 0
+for(let i=0; i<cartFromLocal.length; i++){
+  console.log(totalPrice1);
+  totalPrice1 += cartFromLocal[i].price 
+}
+totalPriceElmt.textContent = totalPrice1;
+
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -186,11 +249,13 @@ const v2 = localGetProducts()
   if(!v1 || !v2){
   localSaveProducts();
   localSaveCart();
+  // totalPrice()
   }
   if (addproductsElmt) {
     renderProducts();
   }
   if (cartTableElmt) {
     renderCart();
+    // totalPrice()
   }
 });
