@@ -46,17 +46,32 @@
               Category
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Men</a></li>
-              <li><a class="dropdown-item" href="#">Women</a></li>
+              <li><button class="dropdown-item" onclick="filterByCategory('Men')">Men</button></li>
+              <li><button class="dropdown-item" onclick="filterByCategory('Women')">Women</button></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Kids wear</a></li>
+              <li><button class="dropdown-item" onclick="filterByCategory('Kids')">Kids wear</button></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="fa-solid fa-filter"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><button class="dropdown-item" onclick="HighToLow()">High to low</button></li>
+              <li><button class="dropdown-item" onclick="LowToHigh()">Low to high</button></li>
             </ul>
           </li>
 
         </ul>
         <div class="d-flex">
+          <form class="d-flex" onsubmit="searchByName()">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="sName">
+            <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
           <button class="btn btn-outline-success" type="submit">Login</button>
           <button class="btn btn-outline-success" type="submit">Register</button>
           <a class="btn btn-success" href="./cart.html">Cart<span class="badge" id="cartLength">0</span></a>
@@ -92,7 +107,7 @@
           <form>
             <div class="mb-3">
               <label for="pName" class="form-label">Product Name</label>
-              <input type="text" class="form-control" id="pName" >
+              <input type="text" class="form-control" id="pName">
             </div>
             <div class="mb-3">
               <label for="pDescription" class="form-label">Product Description</label>
@@ -110,9 +125,9 @@
               <label for="pPrice" class="form-label">Product Price</label>
               <input type="text" class="form-control" id="pPrice">
             </div>
-  
-            
-           
+
+
+
           </form>
         </div>
         <div class="modal-footer">

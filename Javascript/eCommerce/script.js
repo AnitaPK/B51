@@ -88,6 +88,33 @@ const products = [
   },
 ];
 
+function filterByCategory(cName){
+  console.log(cName);
+  p_data1 = localGetProducts()
+  prodByCat =  p_data1.filter((x,index)=>x.category == cName)
+  renderProducts(prodByCat);
+}
+
+function LowToHigh(){
+   p_data1 = localGetProducts()
+    const prodLowToHigh =  p_data1.sort((a,b)=> a.price - b.price)
+    renderProducts(prodLowToHigh);
+}
+
+function HighToLow(){
+      p_data1 = localGetProducts()
+    const prodHighToLow =  p_data1.sort((a,b)=> b.price - a.price)
+    renderProducts(prodHighToLow);
+}
+
+function searchByName(){
+      sName = document.querySelector("#sName").value
+      p_data1 = localGetProducts()
+      filterByName = p_data1.filter((p)=> p.name.toLowerCase().includes(sName) )
+      renderProducts(filterByName);
+}
+
+
 const cart = [];
 
 // totalPrice = 0
@@ -108,8 +135,8 @@ function localGetCart() {
 //   return JSON.parse(localStorage.getItem('TotalPrice'))
 // }
 
-function localSaveProducts() {
-  localStorage.setItem("products51", JSON.stringify(products));
+function localSaveProducts(p = products) {
+  localStorage.setItem("products51", JSON.stringify(p));
 }
 
 function localGetProducts() {
@@ -149,16 +176,19 @@ function AddNewProdcut(){
     image: newProductImage,
   }
 console.log(newProduct);
-
-
+  p_data = localGetProducts()
+  p_data.push(newProduct)
+  localSaveProducts(p_data)
+renderProducts();
 }
 
 
 function addToCart(p_id) {
   console.log("*****", p_id);
-  index = products.findIndex((p) => p.id == p_id);
+  p_data1 = localGetProducts()
+  index = p_data1.findIndex((p) => p.id == p_id);
   console.log(index);
-  prod_cart = products[index];
+  prod_cart = p_data1[index];
   cartFromLocal =   localGetCart();
 
   cartFromLocal.push(prod_cart);
@@ -175,7 +205,9 @@ function addToCart(p_id) {
   cartLengthElmt.textContent = cartLength;
   console.log(cart);
   localSaveCart(cartFromLocal);
-  renderCart();
+  const productsRender1 = localGetProducts();
+
+  renderCart(productsRender1);
 
 
 }
