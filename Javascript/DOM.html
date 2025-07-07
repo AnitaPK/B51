@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo1"></div>
+
+    <div class="demoClass"></div>
+
+    <p class="demoClass"></p>
+    <h1 class="demoClass"></h1>
+    <div class="demoClass"></div>
+    <div class="demoClass"></div>
+
+    <img id="imageDOM" />
+<button id="changeImage">Click me to change image</button>
+
+    <script>
+        document.getElementById('imageDOM').setAttribute("alt", "template image")
+        document.querySelector('#imageDOM').setAttribute('src','./template.jpg')
+        document.querySelector('#imageDOM').setAttribute("width", "500")
+        document.querySelector('#imageDOM').setAttribute("height", "500")
+
+        document.querySelector("#changeImage").addEventListener('click', ()=>{
+            console.log(document.querySelector('#imageDOM').getAttribute('src'))
+
+
+            if( document.querySelector('#imageDOM').getAttribute('src') == './template.jpg'){
+            document.querySelector("#imageDOM").src = './natureImage.jpg'
+            }else{
+                document.querySelector("#imageDOM").src = './template.jpg'
+            }
+        })
+
+    </script>
+
+</body>
+</html>
