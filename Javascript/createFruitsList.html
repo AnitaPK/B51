@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      font-size: 1rem;
+      padding: 5px 10px;
+      margin-left: 10px;
+    }
+    .todo-input {
+      padding: 10px;
+      width: 80%;
+    }
+    .add-button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <input type="text" id="fruit-input" class="todo-input" placeholder="Add a new fruit">
+  <button id="add-button" class="add-button">Add Fruit</button>
+  <ul id="fruit-list"></ul>
+
+
+<script>
+    const fruit_input = document.querySelector('#fruit-input')
+    const add_button = document.querySelector('#add-button')
+    const fruit_list = document.querySelector('#fruit-list')
+
+
+
+add_button.addEventListener('click', ()=>{
+        newFruit = fruit_input.value
+        const newFruitElmt = document.createElement('li')
+        console.log(newFruit, newFruitElmt)
+        newFruitContent = document.createTextNode(newFruit)
+        console.log(newFruitContent, "newFruitContent")
+
+        // newFruitElmt.classList.add('')
+        // newFruitElmt.appendChild(newFruitContent)
+        // console.log(newFruitElmt);
+
+
+        newFruitElmt.innerHTML = `${newFruit} 
+                                <button class='deletFruit'>Delete</button>
+                                `
+
+        fruit_list.appendChild(newFruitElmt)
+        fruit_input.value = ''
+        newFruitElmt.querySelector('.deletFruit').addEventListener('click',()=>{
+            console.log(newFruitElmt)
+            fruit_list.removeChild(newFruitElmt);
+
+        })
+        // console.log(newFruitElmt);  
+})
+function deleteFruitElmt(){
+
+console.log(newFruitElmt)
+
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .counter {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Counter App</h1>
+  <div class="counter" id="counter">0</div>
+  <button id="increment">Increment</button>
+  <button id="decrement">Decrement</button>
+  <button id="reset">Reset</button>
+
+
+  <script>
+    const counter = document.querySelector("#counter")
+    const increment = document.querySelector("#increment")
+    const decrement = document.querySelector("#decrement")
+    const reset = document.querySelector("#reset")
+    count = 0
+
+    counter.textContent = count
+
+    increment.addEventListener('click', ()=>{
+        count++
+        console.log(count)
+    counter.textContent = count
+
+    })
+
+    decrement.addEventListener('click', function(){
+        count--
+        counter.textContent = count
+    })
+
+  </script>
+</body>
+</html>

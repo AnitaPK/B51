@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .highlight{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
     <div id="demo1"></div>
@@ -17,6 +27,12 @@
 
     <img id="imageDOM" />
 <button id="changeImage">Click me to change image</button>
+<div class="box">This is highlighed text</div>
+<script>
+    const box = document.querySelector(".box")
+    box.style.backgroundColor = 'red'
+    box.classList.add('highlight')
+</script>
 
     <script>
         document.getElementById('imageDOM').setAttribute("alt", "template image")
@@ -34,6 +50,7 @@
                 document.querySelector("#imageDOM").src = './template.jpg'
             }
         })
+
 
     </script>
 
