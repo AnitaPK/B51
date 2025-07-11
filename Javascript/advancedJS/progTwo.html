@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button onclick="fetchProducts()"> Click</button>
+
+    <script>
+        promice = new Promise((resolve, reject)=>{
+
+            fetchData = ()=>{
+            suc45ess = true;
+
+            if(suc45ess){
+                resolve("progromming successfully executed")
+            }else{
+                reject("progromming get errors")
+            }
+        }
+
+            setTimeout(fetchData,2000)
+
+        })
+
+        promice
+        .then((result)=>{
+            console.log("Success", result)
+        })
+        .catch((error)=>{
+            console.log("Failure", error)
+        })
+
+
+async function fetchProducts(){
+await fetch('https://674e84f1635bad45618eebc1.mockapi.io/api/v1/zeptoproducts')
+.then((response)=>response.json())
+.then((data)=>console.log(data))
+.catch((error)=>console.log(error))
+
+}
+fetchProducts();
+    </script>
+</body>
+</html>
