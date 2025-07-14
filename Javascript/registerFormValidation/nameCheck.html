@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Register Form</h2>
+    <form id="registerForm" novalidate>
+      <!-- Full Name -->
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" />
+        <div class="text-danger" id="nameError"></div>
+      </div>
+       </form>
+    <div class="alert alert-success mt-3 d-none" id="successMsg">Form submitted successfully!</div>
+  </div>
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Get values
+      const name = document.getElementById("fullName").value.trim();
+      
+      let isValid = true;
+
+      // Validate Name
+      if (name.length < 2) {
+        document.getElementById("nameError").textContent = "Name must be at least 2 characters.";
+        isValid = false;
+      }
+       // Final check
+      if (isValid) {
+        document.getElementById("successMsg").classList.remove("d-none");
+        document.getElementById("registerForm").reset();
+      }
+    })
+  </script>
+  </body>
+  </html>
