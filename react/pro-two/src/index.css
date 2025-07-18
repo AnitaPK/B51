@@ -1,0 +1,12 @@
+body{
+  background-color: white;
+  color: black;
+}
+
+
+@media screen and (max-width:600px) {
+  body{
+  background-color: black;
+  color: white;
+}
+}
