@@ -1,0 +1,15 @@
+.redFont{
+    color: red;
+}
+.greenFont{
+    color: green;
+}
+
+.blueBlock{
+    background-color: white;
+    color: blue;
+}
+.greenBlock{
+    background-color: yellow;
+    color: green;
+}

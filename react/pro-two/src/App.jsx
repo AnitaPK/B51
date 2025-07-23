@@ -6,25 +6,52 @@ import Navbar from "./components/Navbar";
 import React, { useEffect, useState } from "react";
 import Counter from "./components/Counter";
 import Fruits from "./components/Fruits";
+import ChangeHeading from "./components/ChangeHeading";
+import Calculator from "./components/Calculator";
 
 function App() {
   // const jobTitle = 'FullStack developer'
-  const [jobTitle, setJobTitle] = useState('FullStack developer')
-
-  useEffect(()=>{
-      console.log("Mount component")
-      return(()=>{
-        console.log('unmount')
-      })
-  },[])
+  const [jobTitle, setJobTitle] = useState("FullStack developer");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [user,setUser] = useState('Shrihari')
+  useEffect(() => {
+    console.log("Mount component");
+    return () => {
+      console.log("unmount");
+    };
+  }, []);
 
   return (
     <>
-    <h3>Job Title :{jobTitle}</h3>
-    <button onClick={()=>setJobTitle('Senior Developer')}>Update job title</button>
-    <Counter />
-    <Fruits />
-    {/* <Navbar />
+      {isLoggedIn ? (
+        <>
+          <h1 className="redFont">User Logged In</h1>
+          {/* <button onClick={() => setIsLoggedIn(false)}>Logout</button> */}
+        </>
+      ) : (
+        <>
+        <h1 className="greenFont">Please Login</h1>
+        {/* <button onClick={()=>setIsLoggedIn(true)}>Login</button> */}
+        </>
+      )}
+<button onClick={()=>setIsLoggedIn(!isLoggedIn)}>
+{isLoggedIn ? 'Logout':'Login'}
+</button>
+      
+<h1 className={`${isLoggedIn ? 'greenBlock ' : 'blueBlock'}`}>Best Style In Focus</h1>
+
+<h1>{isLoggedIn && <span>{user}</span>}</h1>
+
+
+      <Calculator />
+      <ChangeHeading />
+      <h3>Job Title :{jobTitle}</h3>
+      <button onClick={() => setJobTitle("Senior Developer")}>
+        Update job title
+      </button>
+      <Counter />
+      <Fruits />
+      {/* <Navbar />
       <Greeting studName="SHRIHARI" marks={90} />
       <Greeting studName="Aditya" marks={90} />
 
