@@ -8,6 +8,7 @@ import Counter from "./components/Counter";
 import Fruits from "./components/Fruits";
 import ChangeHeading from "./components/ChangeHeading";
 import Calculator from "./components/Calculator";
+import Vegetables from "./components/Vegetables";
 
 function App() {
   // const jobTitle = 'FullStack developer'
@@ -23,6 +24,9 @@ function App() {
 
   return (
     <>
+    <Vegetables />
+      <Fruits />
+
       {isLoggedIn ? (
         <>
           <h1 className="redFont">User Logged In</h1>
@@ -50,7 +54,6 @@ function App() {
         Update job title
       </button>
       <Counter />
-      <Fruits />
       {/* <Navbar />
       <Greeting studName="SHRIHARI" marks={90} />
       <Greeting studName="Aditya" marks={90} />
