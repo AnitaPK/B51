@@ -9,6 +9,7 @@ import Fruits from "./components/Fruits";
 import ChangeHeading from "./components/ChangeHeading";
 import Calculator from "./components/Calculator";
 import Vegetables from "./components/Vegetables";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   // const jobTitle = 'FullStack developer'
@@ -24,6 +25,8 @@ function App() {
 
   return (
     <>
+    <ContactForm />
+
     <Vegetables />
       <Fruits />
 
