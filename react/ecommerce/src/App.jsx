@@ -4,16 +4,33 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import Dashboard from './pages/Dashboard'
 import products from './data'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
     const [isRegistered, setIsRegister] = useState(false)
   return (
     <>
-    {isRegistered ? (<LoginPage />) : (<RegisterPage setIsRegister={setIsRegister} />)}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LoginPage />}></Route>
+          <Route path='/register' element={<RegisterPage setIsRegister={setIsRegister}/>}></Route>
+          <Route path='/dashboard' element={<Dashboard  products={products} />}></Route>
+        </Routes>
+      </BrowserRouter>
+
+
+
+
+    {/* {isRegistered ? (<LoginPage />) : (<RegisterPage setIsRegister={setIsRegister} />)} */}
       {/* <RegisterPage />
       <LoginPage /> */}
+{/* 
+      <Dashboard products={products}/> */}
 
-      <Dashboard products={products}/>
+
+
+
+
     </>
   )
 }

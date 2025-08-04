@@ -1,0 +1,11 @@
+.mainContent{
+  width: 100%;
+  display: flex;
+}
+
+.leftDiv{
+  width: 25%;
+}
+.rightDiv{
+  width: 75%;
+}

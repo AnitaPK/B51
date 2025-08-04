@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = ({setIsRegister}) => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   function handleRegister(event){
     event.preventDefault()
@@ -15,6 +17,7 @@ const RegisterPage = ({setIsRegister}) => {
       console.log(payload,"payload")
       localStorage.setItem('user',JSON.stringify(payload))
       setIsRegister(true)
+      navigate('/')
   }
 
   return (
@@ -71,6 +74,7 @@ const RegisterPage = ({setIsRegister}) => {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
+        <Link to='/'>Already registered</Link>
       </form>
     </div>
   );
