@@ -5,6 +5,7 @@ import RegisterPage from './pages/RegisterPage'
 import Dashboard from './pages/Dashboard'
 import products from './data'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ProductInfo from './pages/ProductInfo'
 
 function App() {
     const [isRegistered, setIsRegister] = useState(false)
@@ -15,6 +16,9 @@ function App() {
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='/register' element={<RegisterPage setIsRegister={setIsRegister}/>}></Route>
           <Route path='/dashboard' element={<Dashboard  products={products} />}></Route>
+          <Route path='/dashboard/:ID/*' exact element={<ProductInfo />}>
+            
+          </Route>
         </Routes>
       </BrowserRouter>
 
