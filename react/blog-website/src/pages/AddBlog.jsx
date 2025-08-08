@@ -10,6 +10,7 @@ const AddBlog = () => {
   function handleSubmit(event){
     event.preventDefault()
     const payload = {
+      id: Date.now(),
       title: blogTitle,
       description:description
     }
