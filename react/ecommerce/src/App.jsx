@@ -4,14 +4,18 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import Dashboard from './pages/Dashboard'
 import products from './data'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import ProductInfo from './pages/ProductInfo'
+import {ThemeProvider} from './ThemeContext/ThemeProvider'
+import Navbar from './components/Navbar'
 
 function App() {
     const [isRegistered, setIsRegister] = useState(false)
   return (
     <>
+    <ThemeProvider >
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='/register' element={<RegisterPage setIsRegister={setIsRegister}/>}></Route>
@@ -21,7 +25,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-
+</ThemeProvider>
 
 
 

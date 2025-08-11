@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
 import products from '../data.js'
+import { CreateTheme } from '../ThemeContext/ThemeProvider.jsx';
+
 
 const ProductInfo = () => {
   const [product, setProduct] = useState({});
   const {ID} = useParams()
+
+  const {theme} = useContext(CreateTheme)
+
+
 
   async function fetchData() {
     const index = products.findIndex((p,i)=> p.id == ID)
@@ -26,7 +32,7 @@ console.log(product,'product')
 
   return (
     <>
-<div className="container my-5">
+<div className={`container my-5 ${ theme == "light" ? "bg-light text-dark" : "bg-dark text-light"}`}>
       {product ? (
         <div className="row align-items-center g-4">
           {/* Left Side - Image */}

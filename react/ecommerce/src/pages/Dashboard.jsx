@@ -7,7 +7,6 @@ const Dashboard = ({ products }) => {
   const [productsState, setProductsState] = useState(products);
   return (
     <>
-      <Navbar />
       <div className="d-flex flex-wrap">
         {products.map((product, index) => (
           <div keys={index}>
