@@ -1,7 +1,7 @@
 import React, { useEffect, useState,useContext } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
 import products from '../data.js'
-import { CreateTheme } from '../ThemeContext/ThemeProvider.jsx';
+import { CreateTheme } from '../context/ThemeProvider.jsx';
 
 
 const ProductInfo = () => {

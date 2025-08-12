@@ -1,39 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
-  const [password, setPassword] = useState('');
-  const [user, setUser] = useState({});
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const u = JSON.parse(localStorage.getItem("user"));
-    console.log(typeof(u),'in efffct')
-    setUser({...user, ...u});
-  }, []);
+  const { loggedUser, login } = useContext(AuthContext);
 
   function handleLogin(e) {
     e.preventDefault();
-    // let flag=false
-    // console.log(email,password)
+    console.log(email, password);
     try {
-        if(user.email == email && user.password == password) {
-      // flag = true
-      alert('Success')
-      navigate('/dashboard');
-    }else {
-      alert("inavalid credientials");
-      navigate('/')
-    }
+      const mgs = login(email, password);
+      if (mgs) {
+        alert(mgs);
+        navigate("/dashboard");
+      } else {
+        alert("inavalid credientials");
+        navigate("/");
+      }
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-
-    
   }
-  console.log(user, "user from local storage");
-  console.log(typeof(user),'type at end')
+  console.log(loggedUser, "in login page");
   return (
     <div className="container w-50 mx-auto border shadow mt-5 rounded-2 p-3">
       <form onSubmit={handleLogin}>
@@ -48,7 +40,7 @@ const LoginPage = () => {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             // value={email}
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-3">
@@ -60,7 +52,7 @@ const LoginPage = () => {
             className="form-control"
             id="exampleInputPassword1"
             // value={password}
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="mb-3 form-check">

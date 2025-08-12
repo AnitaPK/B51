@@ -6,8 +6,9 @@ import Dashboard from './pages/Dashboard'
 import products from './data'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import ProductInfo from './pages/ProductInfo'
-import {ThemeProvider} from './ThemeContext/ThemeProvider'
+import {ThemeProvider} from './context/ThemeProvider'
 import Navbar from './components/Navbar'
+import { AuthProvider } from './context/AuthProvider'
 
 function App() {
     const [isRegistered, setIsRegister] = useState(false)
@@ -15,6 +16,7 @@ function App() {
     <>
     <ThemeProvider >
       <BrowserRouter>
+      <AuthProvider>
         <Navbar />
         <Routes>
           <Route path='/' element={<LoginPage />}></Route>
@@ -24,6 +26,7 @@ function App() {
             
           </Route>
         </Routes>
+        </AuthProvider>
       </BrowserRouter>
 </ThemeProvider>
 
