@@ -10,6 +10,8 @@ import ChangeHeading from "./components/ChangeHeading";
 import Calculator from "./components/Calculator";
 import Vegetables from "./components/Vegetables";
 import ContactForm from "./components/ContactForm/ContactForm";
+import CounterWithReducer from "./components/CounterWithReducer";
+import CounterComponent from "./countReducer/CounterComponent";
 
 function App() {
   // const jobTitle = 'FullStack developer'
@@ -25,6 +27,8 @@ function App() {
 
   return (
     <>
+    <CounterComponent />
+    <CounterWithReducer />
     <ContactForm />
 
     <Vegetables />
