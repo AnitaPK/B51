@@ -1,10 +1,13 @@
 import React, { useContext, useReducer, useState,  } from "react";
 import {ToDoContext} from '../context/ToDoContext'
+import { useNavigate } from "react-router-dom";
 
 const ToDoForm = () => {
     const [name,setName] = useState()
     const [description, setDescription] = useState()
     const {dispatch} = useContext(ToDoContext)
+
+    const navigate = useNavigate()
 
     function handleSubmit(event){
         event.preventDefault()
@@ -13,6 +16,7 @@ const ToDoForm = () => {
             const payload = {name:name,description:description}
             dispatch({type:'ADD_TODO',payload:payload})
             console.log(payload)
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
