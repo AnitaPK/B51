@@ -1,10 +1,11 @@
-const initialState = {
+export const initialState = {
   todos: [],
 };
 
-function reducer(state, action) {
+export function reducer(state, action) {
   switch (action.type) {
-    case "ADD_TODO ":
+    case "ADD_TODO":
+      console.log(action.payload)
       const { name, description } = action.payload;
       if (!name?.trim()) return state; // ignore empty names
       const newTodo = {

@@ -1,15 +1,22 @@
-import React, { useReducer, useState } from "react";
-import {initialState, reducer} from '../reducers/todoReducer.js'
+import React, { useContext, useReducer, useState,  } from "react";
+import {ToDoContext} from '../context/ToDoContext'
 
 const ToDoForm = () => {
     const [name,setName] = useState()
     const [description, setDescription] = useState()
-    const [state,dispatch] = useReducer(reducer,initialState)
+    const {dispatch} = useContext(ToDoContext)
 
     function handleSubmit(event){
         event.preventDefault()
-        payload = {name:name,description:description}
-        dispatch({type:'ADD_TODO',payload:payload})
+        try {
+            console.log(name, description)
+            const payload = {name:name,description:description}
+            dispatch({type:'ADD_TODO',payload:payload})
+            console.log(payload)
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
   return (
@@ -28,7 +35,7 @@ const ToDoForm = () => {
               type="text"
               className="form-control"
               placeholder="e.g., Learn React"
-              value={name}
+              // value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
@@ -39,7 +46,7 @@ const ToDoForm = () => {
               className="form-control"
               placeholder="Details about the task"
               rows={3}
-              value={description}
+              // value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
