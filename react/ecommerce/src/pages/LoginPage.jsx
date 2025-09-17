@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 
@@ -6,6 +6,8 @@ const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const inputRef = useRef(null)
+
 
   const { loggedUser, login } = useContext(AuthContext);
 
@@ -25,6 +27,9 @@ const LoginPage = () => {
       console.log(error);
     }
   }
+  useEffect(()=>{
+    inputRef.current.focus()
+  })
   console.log(loggedUser, "in login page");
   return (
     <div className="container w-50 mx-auto border shadow mt-5 rounded-2 p-3">
@@ -41,6 +46,7 @@ const LoginPage = () => {
             aria-describedby="emailHelp"
             // value={email}
             onChange={(e) => setEmail(e.target.value)}
+            ref={inputRef}
           />
         </div>
         <div className="mb-3">

@@ -26,7 +26,7 @@ function getAllTasks(req,res){
         db.query(q2, (err,result)=>{
             if(err) throw err
             // console.log(result)
-            res.status(200).send({tasks:result})
+            res.status(200).send({tasks:result,success:true})
         })
 
     } catch (error) {
