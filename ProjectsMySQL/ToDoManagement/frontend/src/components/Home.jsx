@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { getAllTasks, deleteTask } from "../api/taskapi";
+import { getAllTasks, deleteTask, isCompleteTask, updateTask } from "../api/taskapi";
 import DeleteTaskModal from './TaskDelete'
+import TaskUpdateModal from "./TaskUpdateModal";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [showModalDelete, setShowModalDelete] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
+
   const [selectedTask, setSelectedTask] = useState(null);
+  const [selectedTaskEdit, setSelectedTaskEdit] = useState(null);
+
 
   async function fetchData() {
     const response = await getAllTasks();
@@ -22,24 +27,51 @@ const Home = () => {
   const handleDeleteClick = (task) => {
     console.log("**********")
     setSelectedTask(task);
-    setShowModal(true);
+    setShowModalDelete(true);
   };
 
   const handleClose = () => {
-    setShowModal(false);
+    setShowModalDelete(false);
     setSelectedTask(null);
+    setShowModalEdit(false);
+    setSelectedTaskEdit(null);
   };
 
   async function handleDelete(taskID){
     response = await deleteTask(taskID)
     if(response.data.success){
-    setShowModal(false);
+    setShowModalDelete(false);
     setSelectedTask(null);
     alert(response.data.msg)
     fetchData()
     }
   }
 
+  function handleUpdateClick(task){
+        console.log("**********")
+    setSelectedTaskEdit(task);
+    setShowModalEdit(true);
+  }
+
+  async function handleUpdate(taskID, formData){
+    console.log("&&&&&&&&&&&&")
+    response = await updateTask(taskID, formData)
+    setShowModalEdit(false)
+    setSelectedTaskEdit(null)
+    fetchData()
+  }
+
+
+async function handleIsComplete(taskID) {
+      const response = await isCompleteTask(taskID)
+      if(response.data.success){
+      alert(response.data.msg)
+      }else{
+        alert('Cant updated')
+      }
+    fetchData();
+
+}
 
   return (
     <>
@@ -66,10 +98,14 @@ const Home = () => {
                 <th scope="row">{i+1}</th>
                 <td>{task.task_name}</td>
                 <td>{task.task_description}</td>
-                <td>{task.is_complete == 0 ? <span>In progress</span>:<span>Completed</span>}</td>
+                <td>
+                  
+                  <button onClick={()=>handleIsComplete(task.id)}>{task.is_complete == 0 ? <span>In progress</span>:<span>Completed</span>}
+                  </button>
+                  </td>
                 <td>{task.start_date}</td>
                 <td>{task.end_date}</td>
-                <td><button className="btn btn-success">Edit</button>
+                <td><button className="btn btn-success" onClick={()=>handleUpdateClick(task)}>Edit</button>
                 <button className="btn btn-danger"
                 onClick={() => handleDeleteClick(task)}
                 >Delete</button>
@@ -84,10 +120,19 @@ const Home = () => {
         </table>
       </div>
     </div>
-    <DeleteTaskModal show={showModal}
+    <DeleteTaskModal show={showModalDelete}
         handleClose={handleClose}
         handleDelete={handleDelete}
         task={selectedTask}/>
+
+
+
+<TaskUpdateModal 
+show={showModalEdit}
+        handleClose={handleClose}
+        handleUpdate={handleUpdate}
+        task={selectedTaskEdit}
+/>
     </>
 
   );

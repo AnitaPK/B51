@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/add-task' element={<TaskForm />}></Route>
+          {/* create dynamic route for get Task by Id   */}
         </Routes>
      </BrowserRouter>
     </>
