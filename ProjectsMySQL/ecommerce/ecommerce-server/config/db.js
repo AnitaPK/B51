@@ -13,5 +13,19 @@ const sequelize = new Sequelize(
     }
 )
 
+// Test the connection
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Database connected successfully!");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to the database:", err);
+  });
 
-module.exports = sequelize
+// for table update 
+sequelize.sync({ alter: true })
+  .then(() => console.log("✅ Tables altered successfully ."))
+  .catch(err => console.error("❌ Sync error:", err));
+
+module.exports = sequelize 

@@ -10,10 +10,16 @@ const getAllBrands = async (req, res) => {
     }
 };
 
-function getBrandById(req, res) {
+async function getBrandById(req, res) {
   const ID = req.params.ID;
    try {
-     console.log(ID)   
+     console.log(ID) 
+     const brand = await Brand.findByPk(ID);
+    if (!brand){
+        res.status(404).send({ message: "Brand not found" });
+    }else{
+    res.status(200).send({ success: true, brand });  
+    }
     } catch (error) {
         res.status(500).send({msg:"server error"})
     }
@@ -33,18 +39,31 @@ async function createBrand(req, res) {
     }
 
 }
-function updateBrand(req, res) {
+async function updateBrand(req, res) {
   const ID = req.params.ID;
    try {
+    const { bName } = req.body;
+    const brand = await Brand.findByPk(req.params.id);
+    if (!brand) return res.status(404).send({ message: "Brand not found" });
+
+    brand.bName = bName || brand.bName;
+    await brand.save();
+
+    res.status(200).send({ success: true, brand });
         
     } catch (error) {
         res.status(500).send({msg:"server error"})
     }
 
 }
-function deleteBrand(req, res) {
+async function deleteBrand(req, res) {
   const ID = req.params.ID;
    try {
+    const brand = await Brand.findByPk(req.params.id);
+    if (!brand) return res.status(404).send({ message: "Brand not found" });
+
+    await brand.destroy();
+    res.status(200).send({ success: true, message: "Brand deleted successfully" });
         
     } catch (error) {
         res.status(500).send({msg:"server error"})

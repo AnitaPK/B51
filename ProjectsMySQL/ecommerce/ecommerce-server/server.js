@@ -15,7 +15,11 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.use('/category', categoryRoute)
 app.use('/brand', brandRoute)
-app.use('product',productRoute )
+app.use('/product',productRoute)
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+// http://localhost:7000/category/getAllCategories
+// http://localhost:7000/brand/getAllBrands
+// http://localhost:7000/product/getAllProducts
