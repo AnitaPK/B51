@@ -4,8 +4,8 @@ import axiosInstance from "./axiosInstance";
 export const getAllBrands = () => axiosInstance.get("brand/getAllBrands");
 export const getBrandById = (id) => axiosInstance.get(`/brand/getBrandById/${id}`);
 export const createBrand = (data) => axiosInstance.post("/brand/createBrand", data);
-export const updateBrand = (id, data) => axiosInstance.put(`/brands/updateBrand/${id}`, data);
-export const deleteBrand = (id) => axiosInstance.delete(`/brands/deleteBrand/${id}`);
+export const updateBrand = (id, data) => axiosInstance.put(`/brand/updateBrand/${id}`, data);
+export const deleteBrand = (id) => axiosInstance.delete(`/brand/deleteBrand/${id}`);
 
 /* -------------------- CATEGORY APIs -------------------- */
 export const getAllCategories = () => axiosInstance.get("category/getAllCategories");

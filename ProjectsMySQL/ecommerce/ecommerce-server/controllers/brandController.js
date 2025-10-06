@@ -43,7 +43,7 @@ async function updateBrand(req, res) {
   const ID = req.params.ID;
    try {
     const { bName } = req.body;
-    const brand = await Brand.findByPk(req.params.id);
+    const brand = await Brand.findByPk(req.params.ID);
     if (!brand) return res.status(404).send({ message: "Brand not found" });
 
     brand.bName = bName || brand.bName;
@@ -57,9 +57,12 @@ async function updateBrand(req, res) {
 
 }
 async function deleteBrand(req, res) {
-  const ID = req.params.ID;
+  const {ID} = req.params;
+    console.log(ID, req.params.ID)
+
    try {
-    const brand = await Brand.findByPk(req.params.id);
+    const brand = await Brand.findOne({ where: { id: ID } });
+    console.log(brand)
     if (!brand) return res.status(404).send({ message: "Brand not found" });
 
     await brand.destroy();

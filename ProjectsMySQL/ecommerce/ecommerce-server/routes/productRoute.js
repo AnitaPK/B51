@@ -9,4 +9,7 @@ router.post('/createProduct', productController.createProduct )
 router.put("/updateProduct/:ID",productController.updateProduct)
 router.delete("/deleteProduct/:ID", productController.deleteProduct)
 
+router.get('/filter', productController.getProductByFilter)
+
+
 module.exports = router

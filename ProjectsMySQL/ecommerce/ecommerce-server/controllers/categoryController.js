@@ -45,7 +45,7 @@ async function updateCategory(req, res) {
   const ID = req.params.ID;
    try {
         const { cName } = req.body;
-    const category = await Category.findByPk(req.params.id);
+    const category = await Category.findByPk(req.params.ID);
     if (!category) return res.status(404).send({ message: "Category not found" });
 
     category.cName = cName || category.cName;
@@ -58,9 +58,10 @@ async function updateCategory(req, res) {
 
 }
 async function deleteCategory(req, res) {
-  const ID = req.params.ID;
+    console.log(req.params)
+  const {ID} = req.params;
    try {
-    const category = await Category.findByPk(req.params.id);
+    const category = await Category.findOne({ where: { id: ID } });
     if (!category) return res.status(404).send({ message: "Category not found" });
 
     await category.destroy();
