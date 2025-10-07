@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 
 const BrandModal = ({ show, onHide, refresh, selectedBrand }) => {
   const [bName, setBName] = useState("");
+  const [bImage, setBImage] = useState(null);
+
 
   useEffect(() => {
     if (selectedBrand) setBName(selectedBrand.bName);
@@ -16,7 +18,12 @@ const BrandModal = ({ show, onHide, refresh, selectedBrand }) => {
         await updateBrand(selectedBrand.id, { bName });
         toast.success("Brand updated successfully");
       } else {
-        await createBrand({ bName });
+
+ // Create FormData for file + text
+        const formData = new FormData();
+        formData.append("bName", bName);
+        if (bImage) formData.append("bImage", bImage);
+        await createBrand(formData);
         toast.success("Brand created successfully");
       }
       refresh();
@@ -49,6 +56,16 @@ const BrandModal = ({ show, onHide, refresh, selectedBrand }) => {
                   value={bName}
                   onChange={(e) => setBName(e.target.value)}
                   required
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Brand Image</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  value={bImage}
+                  required
+                  onChange={(e) => setBImage(e.target.files[0])}
                 />
               </div>
             </div>

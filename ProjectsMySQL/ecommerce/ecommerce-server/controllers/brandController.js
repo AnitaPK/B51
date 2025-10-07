@@ -1,10 +1,16 @@
 const Brand = require('../models/brandModel')
 
-
+const baseURL = 'http://localhost:7000/download/'
 const getAllBrands = async (req, res) => {
     try {
         const brands = await Brand.findAll()
-        res.status(200).send({brands:brands,success:true}) 
+        const updatedBrands = brands.map((b)=>(
+        {id:b.id,
+         bName:b.bName,
+         bIamge: b.bImage ? `${baseURL}${b.bImage}` : ''
+}))
+console.log(updatedBrands)
+        res.status(200).send({brands:updatedBrands,success:true}) 
     } catch (error) {
         res.status(500).send({msg:"server error"})
     }
@@ -15,10 +21,14 @@ async function getBrandById(req, res) {
    try {
      console.log(ID) 
      const brand = await Brand.findByPk(ID);
+     const updatedBrand = {id:brand.id,
+         bName:brand.bName,
+         bIamge: brand.bImage ? `${baseURL}${b.bImage}` : ''
+}
     if (!brand){
         res.status(404).send({ message: "Brand not found" });
     }else{
-    res.status(200).send({ success: true, brand });  
+    res.status(200).send({ success: true, updatedBrand });  
     }
     } catch (error) {
         res.status(500).send({msg:"server error"})
@@ -26,9 +36,12 @@ async function getBrandById(req, res) {
 }
 
 async function createBrand(req, res) {
+
     console.log(req.body)
+    bName = req.body.bName;
+    bImage = req.file ? req.file.filename : null
      try {
-        const newBrand = await Brand.create(req.body)
+        const newBrand = await Brand.create({bName:bName,bImage:bImage})
         if(newBrand){
         res.status(200).send({msg:"Brand created successfully",success:true})
         }else{

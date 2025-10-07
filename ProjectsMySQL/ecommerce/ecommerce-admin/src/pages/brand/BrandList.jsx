@@ -88,7 +88,12 @@ const BrandList = () => {
               brands.map((b, i) => (
                 <tr key={b.id}>
                   <td>{i + 1}</td>
-                  <td>{b.bName}</td>
+                  <td>{b.bName}
+                    <span>
+                      <img src={`${b.bIamge}`} alt={b.bName} class="img-fluid " style={{width:"40px", height:"30px"}} />
+                    </span>
+
+                  </td>
                   <td>
                     <button
                       className="btn btn-warning btn-sm me-2"
