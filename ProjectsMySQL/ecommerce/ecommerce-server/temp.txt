@@ -1,0 +1,34 @@
+brand 5 
+category 5
+product 5
+CRUD getByID
+
+/getProductsByCategory 
+/getProductsByBrand
+/filter        for min and max price 
+
+18 
+
+user routes 
+
+/register
+
+/login
+
+/getUserInfo
+
+in server.js add userRoute   1
+
+create userRoute   2
+
+create userController  register login getUserInfo   3
+
+userModal 
+   name , email(unique), mobile number, password , role  4
+
+auth.js     5
+
+add steps for bcryptjs for password
+
+
+
