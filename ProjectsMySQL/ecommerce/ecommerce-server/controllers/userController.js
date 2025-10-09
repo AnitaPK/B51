@@ -1,5 +1,7 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 
 async function register(req,res){
@@ -57,9 +59,12 @@ async function login(req,res){
       return res.status(401).json({ success: false, msg: "Invalid credentials" });
     }
 
+    const token = jwt.sign({id:user.id, role:user.role}, process.env.SECREATE_KEY, {expiresIn:'1h'})
+
     res.status(200).json({
       success: true,
       msg: "Login successful",
+      token:token
     });
   } catch (error) {
     res.status(500).send({ msg: "Server error" });
@@ -67,7 +72,7 @@ async function login(req,res){
 }
 
 async function getUserInfo(req,res){
- console.log(req.params.ID);
+ console.log(req.params.ID, "In controller");
 
   try {
     const userId = req.params.ID;
