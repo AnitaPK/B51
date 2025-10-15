@@ -21,14 +21,21 @@ async function getBrandById(req, res) {
    try {
      console.log(ID) 
      const brand = await Brand.findByPk(ID);
-     const updatedBrand = {id:brand.id,
-         bName:brand.bName,
-         bIamge: brand.bImage ? `${baseURL}${b.bImage}` : ''
-}
+    //  console.log(brand,"*******")
+
     if (!brand){
         res.status(404).send({ message: "Brand not found" });
     }else{
-    res.status(200).send({ success: true, updatedBrand });  
+        console.log(brand instanceof Brand,"111111111111");
+             const plainBrand = brand.get({ plain: true });
+     console.log(plainBrand)
+     const updatedBrand = {
+        id:plainBrand.id,
+         bName:plainBrand.bName,
+         bIamge: plainBrand.bImage ? `${baseURL}${b.bImage}` : ''
+}
+console.log(updatedBrand,"updatedBrand")
+    res.status(200).send({ success: true, brand:updatedBrand });  
     }
     } catch (error) {
         res.status(500).send({msg:"server error"})

@@ -1,137 +1,204 @@
-import React, { useEffect, useState } from "react";
-import {
-  createProduct,
-  updateProduct,
-  getAllBrands,
-  getAllCategories,
-} from "../../api/apiService";
+import React, { useState, useEffect } from "react";
+import { getAllCategories, getAllBrands, createProduct, updateProduct } from "../../api/apiService";
 import { toast } from "react-toastify";
 
-const ProductModal = ({ show, setShow, editProduct, refresh }) => {
-  const [pName, setPName] = useState("");
-  const [pDescription, setPDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [catID, setCatID] = useState("");
-  const [brandID, setBrandID] = useState("");
-  const [brands, setBrands] = useState([]);
+const ProductModal = ({ show, onHide, selectedProduct, refresh }) => {
+  const [formData, setFormData] = useState({
+    pName: "",
+    pDescription: "",
+    price: "",
+    quantity: "",
+    catID: "",
+    brandID: "",
+  });
+
   const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
 
-  useEffect(() => {
-    const fetchDropdowns = async () => {
-      try {
-        const [brandRes, catRes] = await Promise.all([
-          getAllBrands(),
-          getAllCategories(),
-        ]);
-        setBrands(brandRes.data.brands || []);
-        setCategories(catRes.data.categories || []);
-      } catch (err) {
-        toast.error("Failed to load dropdowns");
-      }
-    };
-    fetchDropdowns();
+  const [images, setImages] = useState([]); // New images
+  const [previewImages, setPreviewImages] = useState([]); // Previews for new images
+  const [existingImages, setExistingImages] = useState([]); // Existing images
 
-    if (editProduct) {
-      setPName(editProduct.pName);
-      setPDescription(editProduct.pDescription);
-      setPrice(editProduct.price);
-      setQuantity(editProduct.quantity);
-      setCatID(editProduct.catID);
-      setBrandID(editProduct.brandID);
-    } else {
-      setPName("");
-      setPDescription("");
-      setPrice("");
-      setQuantity("");
-      setCatID("");
-      setBrandID("");
-    }
-  }, [editProduct]);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // Fetch categories and brands
+  const fetchDropdowns = async () => {
     try {
-      const payload = { pName, pDescription, price, quantity, catID, brandID };
-      if (editProduct) {
-        await updateProduct(editProduct.id, payload);
-        toast.success("Product updated");
-      } else {
-        await createProduct(payload);
-        toast.success("Product created");
-      }
-      setShow(false);
-      refresh();
-    } catch {
-      toast.error("Error saving product");
+      const catRes = await getAllCategories();
+      setCategories(catRes.data.categories || []);
+
+      const brandRes = await getAllBrands();
+      setBrands(brandRes.data.brands || []);
+    } catch (err) {
+      toast.error("Failed to load categories or brands");
     }
   };
+
+  useEffect(() => {
+    fetchDropdowns();
+  }, []);
+
+  // Populate form when editing
+  useEffect(() => {
+    if (selectedProduct) {
+      setFormData({
+        pName: selectedProduct.pName,
+        pDescription: selectedProduct.pDescription || "",
+        price: selectedProduct.price,
+        quantity: selectedProduct.quantity,
+        catID: selectedProduct.catID,
+        brandID: selectedProduct.brandID,
+      });
+      setExistingImages(selectedProduct.images || []);
+      setImages([]);
+      setPreviewImages([]);
+    } else {
+      setFormData({
+        pName: "",
+        pDescription: "",
+        price: "",
+        quantity: "",
+        catID: "",
+        brandID: "",
+      });
+      setExistingImages([]);
+      setImages([]);
+      setPreviewImages([]);
+    }
+  }, [selectedProduct]);
+
+  // Handle input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle new image selection
+  const handleImageChange = (e) => {
+     if (!e.target.files) return;
+  const files = Array.from(e.target.files); // convert FileList to array
+  setImages(files);
+
+    const previews = files.map((file) => URL.createObjectURL(file));
+    setPreviewImages(previews);
+  };
+
+  // Remove existing image
+  const removeExistingImage = (index) => {
+    const newImages = [...existingImages];
+    newImages.splice(index, 1);
+    setExistingImages(newImages);
+  };
+
+  // Submit form
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  try {
+    const data = new FormData();
+    data.append("pName", formData.pName);
+    data.append("pDescription", formData.pDescription);
+    data.append("price", formData.price);
+    data.append("quantity", formData.quantity);
+    data.append("catID", formData.catID);
+    data.append("brandID", formData.brandID);
+
+    // Append new images
+    if (images.length > 0) {
+      images.forEach((img) => data.append("myfiles", img)); // must match backend field name
+    }
+
+    // Append existing images (for edit)
+    if (selectedProduct) {
+      data.append("existingImages", JSON.stringify(existingImages));
+      await updateProduct(selectedProduct.id, data);
+      toast.success("Product updated successfully");
+    } else {
+      await createProduct(data);
+      toast.success("Product created successfully");
+    }
+
+    refresh();
+    onHide();
+  } catch (err) {
+    console.error(err);
+    toast.error(err.response?.data?.msg || "Operation failed");
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (!show) return null;
 
   return (
-    <div
-      className="modal fade show d-block"
-      tabIndex="-1"
-      style={{ background: "rgba(0,0,0,0.5)" }}
-    >
-      <div className="modal-dialog modal-dialog-centered modal-lg">
+    <div className="modal show d-block" tabIndex="-1" style={{ background: "rgba(0,0,0,0.5)" }}>
+      <div className="modal-dialog modal-lg">
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">
-              {editProduct ? "Edit Product" : "Add Product"}
-            </h5>
-            <button className="btn-close" onClick={() => setShow(false)}></button>
-          </div>
-          <div className="modal-body">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-2">
-                <label>Name</label>
+          <form onSubmit={handleSubmit}>
+            <div className="modal-header">
+              <h5 className="modal-title">{selectedProduct ? "Edit Product" : "Add Product"}</h5>
+              <button type="button" className="btn-close" onClick={onHide}></button>
+            </div>
+
+            <div className="modal-body">
+              {/* Product Name */}
+              <div className="mb-3">
+                <label className="form-label">Product Name</label>
                 <input
+                  type="text"
                   className="form-control"
-                  value={pName}
-                  onChange={(e) => setPName(e.target.value)}
+                  name="pName"
+                  value={formData.pName}
+                  onChange={handleChange}
                   required
                 />
               </div>
-              <div className="mb-2">
-                <label>Description</label>
+
+              {/* Description */}
+              <div className="mb-3">
+                <label className="form-label">Description</label>
                 <textarea
                   className="form-control"
-                  value={pDescription}
-                  onChange={(e) => setPDescription(e.target.value)}
-                  required
+                  name="pDescription"
+                  value={formData.pDescription}
+                  onChange={handleChange}
                 />
               </div>
-              <div className="row">
-                <div className="col-md-6 mb-2">
-                  <label>Price</label>
+
+              {/* Price & Quantity */}
+              <div className="mb-3 d-flex gap-3">
+                <div className="flex-grow-1">
+                  <label className="form-label">Price</label>
                   <input
                     type="number"
                     className="form-control"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
+                    name="price"
+                    value={formData.price}
+                    onChange={handleChange}
                     required
                   />
                 </div>
-                <div className="col-md-6 mb-2">
-                  <label>Quantity</label>
+                <div className="flex-grow-1">
+                  <label className="form-label">Quantity</label>
                   <input
                     type="number"
                     className="form-control"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
+                    name="quantity"
+                    value={formData.quantity}
+                    onChange={handleChange}
                     required
                   />
                 </div>
               </div>
-              <div className="row">
-                <div className="col-md-6 mb-2">
-                  <label>Category</label>
+
+              {/* Category & Brand */}
+              <div className="mb-3 d-flex gap-3">
+                <div className="flex-grow-1">
+                  <label className="form-label">Category</label>
                   <select
                     className="form-select"
-                    value={catID}
-                    onChange={(e) => setCatID(e.target.value)}
+                    name="catID"
+                    value={formData.catID}
+                    onChange={handleChange}
                     required
                   >
                     <option value="">Select Category</option>
@@ -142,33 +209,84 @@ const ProductModal = ({ show, setShow, editProduct, refresh }) => {
                     ))}
                   </select>
                 </div>
-                <div className="col-md-6 mb-2">
-                  <label>Brand</label>
+
+                <div className="flex-grow-1">
+                  <label className="form-label">Brand</label>
                   <select
                     className="form-select"
-                    value={brandID}
-                    onChange={(e) => setBrandID(e.target.value)}
+                    name="brandID"
+                    value={formData.brandID}
+                    onChange={handleChange}
                     required
                   >
                     <option value="">Select Brand</option>
-                    {brands.map((b) => (
-                      <option key={b.id} value={b.id}>
-                        {b.bName}
+                    {brands.map((brand) => (
+                      <option key={brand.id} value={brand.id}>
+                        {brand.bName}
                       </option>
                     ))}
                   </select>
                 </div>
               </div>
-              <div className="text-end">
-                <button className="btn btn-secondary me-2" onClick={() => setShow(false)}>
-                  Cancel
-                </button>
-                <button type="submit" className="btn btn-primary">
-                  {editProduct ? "Update" : "Save"}
-                </button>
+
+              {/* Existing Images */}
+              {existingImages.length > 0 && (
+                <div className="mb-3">
+                  <label className="form-label">Existing Images</label>
+                  <div className="d-flex flex-wrap gap-2">
+                    {existingImages.map((img, i) => (
+                      <div key={i} className="position-relative">
+                        <img
+                          src={img.startsWith("http") ? img : `/uploads/${img}`}
+                          alt=""
+                          style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                        />
+                        <button
+                          type="button"
+                          className="btn btn-sm btn-danger position-absolute top-0 end-0"
+                          onClick={() => removeExistingImage(i)}
+                        >
+                          X
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* New Images */}
+              <div className="mb-3">
+                <label className="form-label">Upload Images</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  multiple
+                  onChange={handleImageChange}
+                />
+                {previewImages.length > 0 && (
+                  <div className="d-flex flex-wrap gap-2 mt-2">
+                    {previewImages.map((img, i) => (
+                      <img
+                        key={i}
+                        src={img}
+                        alt=""
+                        style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-            </form>
-          </div>
+            </div>
+
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" onClick={onHide}>
+                Cancel
+              </button>
+              <button type="submit" className="btn btn-primary" disabled={loading}>
+                {loading ? "Saving..." : selectedProduct ? "Update" : "Save"}
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

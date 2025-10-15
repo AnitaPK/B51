@@ -39,6 +39,7 @@ async function register(req,res){
 
 
 async function login(req,res){
+  console.log(req.body)
  try {
     const { email, password } = req.body;
 
@@ -72,10 +73,10 @@ async function login(req,res){
 }
 
 async function getUserInfo(req,res){
- console.log(req.params.ID, "In controller");
+ console.log(req.user.id, "In controller");
 
   try {
-    const userId = req.params.ID;
+    const userId = req.user.id;
 
     const user = await User.findByPk(userId, {
       attributes: ['id', 'name', 'email', 'mobileNumber', 'role']
@@ -85,7 +86,7 @@ async function getUserInfo(req,res){
       return res.status(404).json({ success: false, msg: "User not found" });
     }
 
-    res.status(200).json({ success: true, user });
+    res.status(200).json({ success: true, user:user });
   } catch (error) {
     res.status(500).send({ msg: "Server error" });
   }

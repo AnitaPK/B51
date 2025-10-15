@@ -20,3 +20,8 @@ export const getProductById = (id) => axiosInstance.get(`/product/getProductById
 export const createProduct = (data) => axiosInstance.post("/product/createProduct", data);
 export const updateProduct = (id, data) => axiosInstance.put(`/products/updateProduct/${id}`, data);
 export const deleteProduct = (id) => axiosInstance.delete(`/products/deleteProduct/${id}`);
+
+/* -------------------- USER APIs -------------------- */
+export const register = (payload) => axiosInstance.post("/user/register",payload)
+export const login = (payload) => axiosInstance.post("/user/login", payload)
+export const getUserInfo = (id) => axiosInstance.get(`/user/getUserInfo`)

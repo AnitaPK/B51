@@ -1,28 +1,31 @@
-const multer = require('multer')
-const path = require('path')
+const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb)=>{
-            cb(null, "uploads/")
-    },
-    filename:(req, file, cb)=>{
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-})
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
 
-const fileFilter = (req,file, cb) =>{
-    const allowedTypes = /jpeg|jpg|png/
-    const extname = allowedTypes.test(path.extname(file.originalname))
-    if(extname) return cb(null, true)
-        cb(new Error("Only images (png, jpg, jpeg) allowed"))
-}
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = /jpeg|jpg|png/;
+  const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+  const mimetype = allowedTypes.test(file.mimetype);
 
-const upload = multer({storage, fileFilter})
+  if (extname && mimetype) return cb(null, true);
 
-const uploadSingle = (fileName)=> upload.single(fileName)
+  cb(new Error('Only images (png, jpg, jpeg) are allowed'));
+};
 
-const uploadMultiple = (fieldName, maxCount = 3) => upload.array(fieldName,maxCount)
+const upload = multer({ storage, fileFilter });
+
+const uploadSingle = (fileName) => upload.single(fileName);
+const uploadMultiple = (fieldName, maxCount = 5) => upload.array(fieldName, maxCount);
 
 module.exports = {
-    uploadSingle, uploadMultiple
-}
+  uploadSingle,
+  uploadMultiple
+};
