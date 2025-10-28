@@ -12,6 +12,7 @@ import TopNavbar from './components/Navbar';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import ProductDetails from './pages/product/ProductDetails';
+import Page404 from './pages/Page404';
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
                     <Route path="products" element={<ProductPage />} />
                     <Route path="products/:ID" element={<ProductDetails />} />
 
-                    <Route path="*" element={<h1>Page Not Found</h1>} />
+                    <Route path="*" element={<h1 className='text-center pt-4'>Welcome to website</h1>} />
                   </Routes>
                 </div>
               </div>

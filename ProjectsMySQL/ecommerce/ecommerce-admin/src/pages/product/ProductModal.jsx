@@ -15,9 +15,9 @@ const ProductModal = ({ show, onHide, selectedProduct, refresh }) => {
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
 
-  const [images, setImages] = useState([]); // New images
-  const [previewImages, setPreviewImages] = useState([]); // Previews for new images
-  const [existingImages, setExistingImages] = useState([]); // Existing images
+  const [images, setImages] = useState([]); 
+  const [previewImages, setPreviewImages] = useState([]); 
+  const [existingImages, setExistingImages] = useState([]); 
 
   const [loading, setLoading] = useState(false);
 
@@ -75,11 +75,13 @@ const ProductModal = ({ show, onHide, selectedProduct, refresh }) => {
   // Handle new image selection
   const handleImageChange = (e) => {
      if (!e.target.files) return;
-  const files = Array.from(e.target.files); // convert FileList to array
-  setImages(files);
 
-    const previews = files.map((file) => URL.createObjectURL(file));
-    setPreviewImages(previews);
+  const files = Array.from(e.target.files); // selected files
+  const newPreviews = files.map((file) => URL.createObjectURL(file));
+
+  // ✅ Append instead of replace
+  setImages((prev) => [...prev, ...files]);
+  setPreviewImages((prev) => [...prev, ...newPreviews]);
   };
 
   // Remove existing image
@@ -104,7 +106,7 @@ const ProductModal = ({ show, onHide, selectedProduct, refresh }) => {
 
     // Append new images
     if (images.length > 0) {
-      images.forEach((img) => data.append("myfiles", img)); // must match backend field name
+      images.forEach((img) => data.append("myfiles", img)); 
     }
 
     // Append existing images (for edit)
