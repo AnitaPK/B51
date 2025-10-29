@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const connectDB = require('./config/db')
 const userRouter = require('./routes/userRoute')
+const path = require('path')
+
 const app = express()
 const port = 5000
 
@@ -14,7 +16,7 @@ connectDB();
 
 
 app.use('/user',userRouter )
-
+app.use('/download', express.static(path.join('uploads')) )
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

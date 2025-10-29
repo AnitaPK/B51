@@ -4,8 +4,14 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const{ ObjectId } = require('mongoose');
 
+
+
+const baseURL = 'http://localhost:5000/download/'
+
 async function register(req, res) {
   const { name, email, password } = req.body;
+  const avatar = req.file ? req.file.filename : null
+
   console.log(req.body, "reqBody")
   try {
     const existsUser = await User.findOne({ email });
@@ -14,7 +20,7 @@ async function register(req, res) {
     const genSalt1 =await bcrypt.genSalt(8)
     const hashPassword =await bcrypt.hash(password, genSalt1)
     console.log(hashPassword, "hashPassword")
-    const newUser = await User.create({ name, email, password:hashPassword });
+    const newUser = await User.create({ name, email, password:hashPassword , avatar});
     await newUser.save();
     console.log(newUser, "newUser")
     res.status(200).json({message:"Register successfully"})
@@ -43,8 +49,18 @@ async function getUserInfo(req, res) {
     const Userid = req.user._id
   try {
     const userInfo = await User.findOne({_id:Userid})
+
+    const updatedUserInfo = {
+      _id:userInfo._id,
+      name: userInfo.name,
+      email:userInfo.email,
+      role:userInfo.role,
+      avatar: userInfo.avatar ? `${baseURL}${userInfo.avatar}` : ''
+    }
+
+
     console.log(userInfo,"userInfo")
-    res.status(200).json({userInfo:userInfo})
+    res.status(200).json({userInfo:updatedUserInfo})
   } catch (error) {
     console.error("createUser error", error);
     res.status(500).json({ message: "Server error" });
