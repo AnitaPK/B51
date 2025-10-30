@@ -58,11 +58,27 @@ async function deleteProject(req,res){
     }
 }
 
+async function updateStatusProject(req,res) {
+    const id = req.params.id
+    const {status}=req.body
 
+    try{
+        const projectForUpdateStatus = await Project.findById(id)
+        if(!projectForUpdateStatus) return res.status(400).json({message:"No such project"})
+        
+        const updatedProjectStatus = await Project.findByIdAndUpdate(id,{status},{new:true} )
+        // await updatedProjectStatus.save()
+        res.status(200).json({message:"Project status updated successfully"})
+
+        } catch (error) {
+    console.error("createUser error", error);
+    res.status(500).json({ message: "Server error" });
+    }
+}
 
 
 
 
 module.exports ={
-    createProject,getAllProject, getProjectById, udateProject, deleteProject
+    createProject,getAllProject, getProjectById, udateProject, deleteProject, updateStatusProject
 }

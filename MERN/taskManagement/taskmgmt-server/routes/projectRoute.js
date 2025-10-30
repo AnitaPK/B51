@@ -11,6 +11,8 @@ router.get('/getProjectById/:id', projectController.getProjectById)
 router.put('/udateProject/:id', protect,adminOnly, projectController.udateProject )
 router.delete('/deleteProject/:id', protect,adminOnly, projectController.deleteProject )
 
+router.patch('/updateStatusProject/:id', protect,adminOnly,projectController.updateStatusProject)
+
 
 
 module.exports = router

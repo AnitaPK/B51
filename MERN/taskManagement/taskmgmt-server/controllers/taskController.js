@@ -1,9 +1,10 @@
 const Task = require('../models/taskModel')
 
 async function createTask(req,res){
-    const {title,description, startDate, endDate, addedBy,projectId, assignTo } = req.body
+    const {title,description, startDate, endDate, projectId, assignTo, status,priority } = req.body
+    const addedBy = req.user.id
     try {
-            const newTask = await Task.create({title,description, startDate, endDate, addedBy,projectId,assignTo})
+            const newTask = await Task.create({title,description, startDate, endDate, addedBy,projectId,assignTo, status,priority})
             await newTask.save()
             res.status(200).json({message:"New Task added successfully"})
     } catch (error) {
@@ -57,6 +58,26 @@ async function deleteTask(req,res){
     res.status(500).json({ message: "Server error" });
     }
 }
+
+async function updateTaskStatus(req,res) {
+    const id = req.params.id
+    const {status}=req.body
+
+    try{
+        const taskForUpdateStatus = await Task.findById(id)
+        if(!taskForUpdateStatus) return res.status(400).json({message:"No such Task"})
+        
+        const updatedTaskStatus = await Task.findByIdAndUpdate(id,{status},{new:true} )
+        // await updatedTaskStatus.save()
+        res.status(200).json({message:"Task status updated successfully"})
+
+        } catch (error) {
+    console.error("createUser error", error);
+    res.status(500).json({ message: "Server error" });
+    }
+}
+
+
 module.exports = {
-    createTask,getAllTasks, getTaskById, updateTask,deleteTask
+    createTask,getAllTasks, getTaskById, updateTask,deleteTask, updateTaskStatus
 }
