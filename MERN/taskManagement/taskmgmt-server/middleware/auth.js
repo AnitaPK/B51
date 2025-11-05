@@ -21,7 +21,7 @@ const protect = (req, res, next) => {
 
 const adminOnly = (req, res, next) => {
   if (req.user.role != "admin") {
-    res.status(403).send({ msg: "You are not admin" });
+    return res.status(403).send({ msg: "You are not admin" });
   }
   next();
 };

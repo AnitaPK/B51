@@ -1,0 +1,22 @@
+:root {
+  --sidebar-width: 220px; /* default */
+}
+
+body { background:#fff; }
+.container { max-width: 1200px; }
+
+
+
+
+/* ensure main content uses the variable to shift right */
+.main-with-sidebar {
+   /* margin-left: var(--sidebar-width); */
+  transition: margin-left 0.3s ease;
+}
+
+/* small screens: hide fixed sidebar and let TopNav handle navigation */
+@media (max-width: 768px) {
+  .main-with-sidebar {
+    margin-left: 0 !important;
+  }
+}
