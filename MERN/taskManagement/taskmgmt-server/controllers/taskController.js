@@ -81,7 +81,24 @@ async function updateTaskStatus(req,res) {
     }
 }
 
+async function getTasksOfUser(req,res){
+    const userId = req.user._id
 
+    try{
+                
+        const usersTasks = await Task.find({ assignTo: userId })
+      .populate("projectId", "name") // populate project name (optional)
+      .populate("addedBy", "name email") // populate who added the task (optional)
+      .populate("assignTo", "name email") // populate assigned user details (optional)
+      .sort({ createdAt: -1 }); // latest first (optional)
+
+    res.status(200).json(usersTasks);
+    } catch (error) {
+    console.error("updateTaskStatus error", error);
+    res.status(500).json({ message: "Server error" });
+    }
+
+}
 module.exports = {
-    createTask,getAllTasks, getTaskById, updateTask,deleteTask, updateTaskStatus
+    createTask,getAllTasks, getTaskById, updateTask,deleteTask, updateTaskStatus, getTasksOfUser
 }

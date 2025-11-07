@@ -12,6 +12,7 @@ const registerUser = createAsyncThunk('user/register', async (formData, thunkAPI
 })
 
 const loginUser = createAsyncThunk('user/login',async (formData, thunkAPI)=>{
+    console.log(formData,"formData in slice")
     try {
         const response = await login(formData)
         return response.data
@@ -29,7 +30,7 @@ const getUserInfo = createAsyncThunk('user/userInfo',async (formData, thunkAPI)=
     }
 })
 
-const tokenFromStorage = localStorage.getItem('token') || null
+const tokenFromStorage = localStorage.getItem('token51') || null
 
 const initialState ={
     token:tokenFromStorage,
@@ -48,7 +49,7 @@ const authSlice = createSlice({
             localStorage.removeItem('token')
         },
         setUser(state,action){
-            state.user=action.payload
+            state.user=action.payload.userInfo
         }
     },
     extraReducers(builder){
@@ -60,13 +61,13 @@ const authSlice = createSlice({
             state.status = 'succeeded'
             const token = action.payload.token
             state.token = token
-            localStorage.setItem('token', token)
+            localStorage.setItem('token51', token)
         })
         .addCase(loginUser.rejected,(state,action)=>{state.status = 'failed', state.error = action.error})
         
-        addCase(getUserInfo.fulfilled, (state,action) =>{
-            state.status = 'fulfilled'
-            user = action.payload,
+        .addCase(getUserInfo.fulfilled, (state,action) =>{
+            state.status = 'succeeded'
+            const user = action.payload.userInfo
             state.user = user
         })
         .addCase(getUserInfo.rejected,(state,action)=>{state.status = 'failed', state.error = action.error})
@@ -74,5 +75,6 @@ const authSlice = createSlice({
 });
 
 
-export const {logout, setUsers} = authSlice.actions;
+export const {logout, setUser} = authSlice.actions;
+export { registerUser, loginUser, getUserInfo }; 
 export default authSlice.reducer

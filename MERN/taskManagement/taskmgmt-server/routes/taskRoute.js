@@ -12,7 +12,7 @@ router.get('/getTaskById/:id', taskController.getTaskById)
 router.put('/updateTask/:id', protect,adminOnly, taskController.updateTask)
 router.delete('/deleteTask/:id' ,protect,adminOnly, taskController.deleteTask)
 
-
+router.get('/getTasksOfUser', protect, taskController.getTasksOfUser)
 router.patch('/updateTaskStatus/:id' ,protect, taskController.updateTaskStatus)
 // router.get('/getTasksByProject, taskController.getTasksByProject)
 // router.get('/getTaksByAssigned', taskController.getTaksByAssigned)
